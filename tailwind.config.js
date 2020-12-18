@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: theme => ({
-       'metro': "url('/bg.jpg')",
+       'metro': "url('/bg.webp')",
       })
     }
   },
