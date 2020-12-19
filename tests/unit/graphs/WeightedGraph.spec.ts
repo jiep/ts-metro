@@ -1,5 +1,5 @@
-import WeightedGraph from '../../src/lib/graphs/WeightedGraph'
-import GraphClass from '../../src/lib/graphs/GraphClass'
+import WeightedGraph from '@/lib/graphs/WeightedGraph'
+import GraphClass from '@/lib/graphs/GraphClass'
 
 import { expect } from 'chai'
 

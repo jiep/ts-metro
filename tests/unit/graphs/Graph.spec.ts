@@ -1,5 +1,5 @@
-import Graph from '../../src/lib/graphs/Graph'
-import GraphClass from '../../src/lib/graphs/GraphClass'
+import Graph from '@/lib/graphs/Graph'
+import GraphClass from '@/lib/graphs/GraphClass'
 
 import { expect } from 'chai'
 
