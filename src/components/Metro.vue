@@ -1,5 +1,5 @@
 <template lang="pug">
-  .flex.opacity-90
+  .flex.opacity-90.overflow-y-auto
     section.flex.p-8.justify-center.items-center
       form.bg-white.shadow-xl.rounded-lg.p-8
         label.block.mb-4
@@ -15,18 +15,21 @@
             option(:value="s.getId" v-for="(s, i) in stations") {{s.getName}}
 
         .flex.justify-items-end
-          button.border.border-red-500.bg-red-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', type='button' class='hover:bg-red-600 focus:outline-none focus:shadow-outline') Buscar ruta más corta
+          button.border.border-red-500.bg-red-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-red-600 focus:outline-none focus:shadow-outline') Buscar ruta más corta
 
-    section.flex-1.p-8
+    section.flex-1.p-8.overflow-y-auto
       .bg-white.shadow-xl.rounded-lg.p-8.h-full
-        template(v-if="selectedOrigin !== '' && selectedDestiny !== ''")
-          .flex.flex-col
+        template(v-if="clicked")
+          .flex.flex-col.overflow-y-auto.h-full
             section
-              h1.text-xl.text-gray-700.block Ruta más corta desde {{metro.getStationById(selectedOrigin).getName}} hasta {{metro.getStationById(selectedDestiny).getName}}
+              h1.text-xl.text-gray-700.block Ruta más corta desde
+                label.text-xs.px-2.py-1.rounded.bg-green-300.text-black.mx-2 {{metro.getStationById(selectedOrigin).getName}}
+                | hasta
+                label.text-xs.px-2.py-1.rounded.bg-indigo-300.text-black.ml-2 {{metro.getStationById(selectedDestiny).getName}}
               h1.mb-8.text-gray-700
                 label.text-xs.px-2.py-1.rounded.bg-blue-300.text-black.mr-2 {{distance}}
                 | metros
-            section.flex.flex-col
+            section.flex.flex-col.overflow-y-auto.h-full
               p.text-gray-700.border-b.pt-2.pb-2(class='first:border-t', v-for="station in shortestPath") {{station}}
         section.flex.flex-col.justify-center.items-center.h-full.text-center(v-else)
           svg.text-gray-400.mb-4.w-12(aria-hidden='true' focusable='false' data-prefix='fas' data-icon='clipboard-list' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512')
@@ -49,7 +52,8 @@ export default Vue.extend({
       selectedOrigin: '',
       selectedDestiny: '',
       shortestPath: [],
-      distance: 0
+      distance: 0,
+      clicked: false
     }
   },
   async mounted () {
@@ -64,6 +68,11 @@ export default Vue.extend({
   },
   methods: {
     onClick () {
+      if (this.selectedOrigin === this.selectedDestiny) {
+        alert('Las estaciones de origen y destino no pueden coincidir')
+        return
+      }
+      this.clicked = true
       const stationOrigin: Station = this.metro.getStationById(this.selectedOrigin)
       const stationDestiny: Station = this.metro.getStationById(this.selectedDestiny)
       const [path, distance] = this.metro.getShortestPath(stationOrigin, stationDestiny)
