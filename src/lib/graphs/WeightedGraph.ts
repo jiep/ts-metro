@@ -2,38 +2,42 @@ import Graph from './Graph'
 import GraphClass from './GraphClass'
 
 export default class WeightedGraph extends Graph {
-  private weighted_matrix: number[][] = [[]];
+  private weightedMatrix: number[][] = [[]];
 
   constructor (c: GraphClass, verticesNumber: number) {
     super(c, verticesNumber)
 
     for (let i = 0; i < verticesNumber; i++) {
-      this.weighted_matrix[i] = []
+      this.weightedMatrix[i] = []
       for (let j = 0; j < verticesNumber; j++) {
-        this.weighted_matrix[i][j] = Number.POSITIVE_INFINITY
+        if (i === j) {
+          this.weightedMatrix[i][j] = 0
+        } else {
+          this.weightedMatrix[i][j] = Number.POSITIVE_INFINITY
+        }
       }
     }
   }
 
   public connect (i: number, j: number, weight?: number) {
     super.connect(i, j)
-    this.weighted_matrix[i][j] = weight!
+    this.weightedMatrix[i][j] = weight!
     if (super.getClass === GraphClass.UNDIRECTED) {
-      this.weighted_matrix[j][i] = weight!
+      this.weightedMatrix[j][i] = weight!
     }
   }
 
   public getWeight (i: number, j: number): number {
-    return this.areConnected(i, j) ? this.weighted_matrix[i][j] : Number.POSITIVE_INFINITY
+    return this.areConnected(i, j) ? this.weightedMatrix[i][j] : Number.POSITIVE_INFINITY
   }
 
   get getWeightedMatrix (): number[][] {
-    return this.weighted_matrix
+    return this.weightedMatrix
   }
 
   private floyd (): Array<number[][]> {
     const n: number = this.vertices()
-    const ans: number[][] = this.getWeightedMatrix
+    const ans: number[][] = this.getWeightedMatrix.map(a => ([...a]))
     const p: number[][] = WeightedGraph.calculePath(this.getWeightedMatrix)
 
     for (let k = 0; k < n; k++) {
@@ -90,14 +94,10 @@ export default class WeightedGraph extends Graph {
 
   public shortestPath (i: number, j: number): Array<any> {
     const floyd = this.floyd()
-    const distance = floyd[0]
-    const path = floyd[1]
-    const shortestPath = WeightedGraph.rPath(i, j, path)
+    const [distance, path] = floyd
+    const sPath = WeightedGraph.rPath(i, j, path)
     const d = distance[i][j]
-    const out = []
-    out.push(shortestPath)
-    out.push(d)
 
-    return out
+    return [sPath, d]
   }
 }

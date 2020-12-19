@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       backgroundImage: theme => ({
        'metro': "url('/bg.webp')",
-      })
+     }),
+     borderWidth: ['first']
     }
   },
   variants: {

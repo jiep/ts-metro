@@ -4,7 +4,7 @@ import GraphClass from '../graphs/GraphClass'
 import Station from './Station'
 
 export default class MetroMadrid extends Metro {
-  private distancesGraph: WeightedGraph;
+  public distancesGraph: WeightedGraph;
 
   constructor (distances: Array<any>, stations: Array<Station>) {
     super(stations)
@@ -19,10 +19,8 @@ export default class MetroMadrid extends Metro {
     let stationsAndDistance: Array<any> = []
     if (source.getId !== destination.getId) {
       stationsAndDistance = this.distancesGraph.shortestPath(source.getId, destination.getId)
-      const stations = stationsAndDistance[0]
-      const distance = stationsAndDistance[1]
-      let a: any = []
-      stations.forEach((stationId: number) => a.push(this.getStationById(stationId)))
+      const [stations, distance] = stationsAndDistance
+      const a: Array<Station> = stations.map((stationId: number) => this.getStationById(stationId))
       return [a, distance]
     } else {
       return [source, 0]

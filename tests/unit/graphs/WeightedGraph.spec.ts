@@ -6,12 +6,16 @@ import { expect } from 'chai'
 describe('WeightedGraph', () => {
   let graph: WeightedGraph
   let directedGraph: WeightedGraph
-  const g: WeightedGraph = new WeightedGraph(GraphClass.UNDIRECTED, 5)
+  const g: WeightedGraph = new WeightedGraph(GraphClass.DIRECTED, 5)
 
   describe('Constructor', () => {
     it('should create a new `WeightedGraph`', () => {
       graph = new WeightedGraph(GraphClass.DIRECTED, 3)
-      expect(graph.getWeightedMatrix).to.eql([[Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY], [Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY], [Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY]])
+      expect(graph.getWeightedMatrix).to.eql([
+        [0, Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY],
+        [Number.POSITIVE_INFINITY, 0, Number.POSITIVE_INFINITY],
+        [Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY, 0]
+      ])
     })
   })
 
@@ -38,7 +42,8 @@ describe('WeightedGraph', () => {
 
   describe('Get weight', () => {
     it('should return the weight between two nodes of the graph', () => {
-      expect(graph.getWeight(1, 1)).to.equal(Number.POSITIVE_INFINITY)
+      expect(graph.getWeight(1, 1)).to.equal(0)
+      expect(graph.getWeight(1, 2)).to.equal(6)
     })
   })
 
@@ -58,19 +63,19 @@ describe('WeightedGraph', () => {
       const weightedMatrix: number[][] = g.getWeightedMatrix
       const infinity = Number.POSITIVE_INFINITY
       const expectedMatrix: number[][] = [
-        [infinity, 1, 2, 5, infinity],
-        [1, infinity, 2, infinity, 6],
-        [2, 2, infinity, 2, 4],
-        [5, infinity, 2, infinity, 1],
-        [infinity, 6, 4, 1, infinity]
+        [0, 1, infinity, 5, infinity],
+        [infinity, 0, 2, infinity, 6],
+        [2, infinity, 0, 2, 4],
+        [infinity, infinity, infinity, 0, 1],
+        [infinity, infinity, infinity, infinity, 0]
       ]
-      expect(weightedMatrix).to.eql(expectedMatrix)
+      expect(weightedMatrix).to.have.same.deep.members(expectedMatrix)
       const out = g.shortestPath(0, 4)
-      expect(out[0]).to.eql([0, 2, 3, 4])
-      expect(out[1]).to.equal(5)
+      expect(out[0]).to.have.same.deep.members([0, 3, 4])
+      expect(out[1]).to.equal(6)
 
-      const out2 = g.shortestPath(2, 1)
-      expect(out2[0]).to.eql([2, 1])
+      const out2 = g.shortestPath(1, 2)
+      expect(out2[0]).to.deep.equal([1, 2])
       expect(out2[1]).to.equal(2)
     })
   })
