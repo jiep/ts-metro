@@ -64,7 +64,7 @@ export default Vue.extend({
     const distances = await responses[1].json()
 
     this.metro = new MetroMadrid(distances, stations)
-    this.stations = stations
+    this.stations = stations.sort((a: Station, b: Station) => a.getName.localeCompare(b.getName))
   },
   methods: {
     onClick () {

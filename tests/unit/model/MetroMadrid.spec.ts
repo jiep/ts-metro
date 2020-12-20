@@ -10,8 +10,8 @@ describe('Metro Madrid', () => {
   const metro: MetroMadrid = new MetroMadrid(distances, stations)
 
   describe('Contructor', () => {
-    it('should create the Madrid metro with 274 stations', () => {
-      expect(metro.getStations.length).to.equal(274)
+    it('should create the Madrid metro with 276 stations', () => {
+      expect(metro.getStations.length).to.equal(276)
     })
 
     it('should create the metro with the specific stations', () => {
