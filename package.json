@@ -1,5 +1,5 @@
 {
-  "name": "vue-ts-metro",
+  "name": "ts-metro",
   "version": "1.0.0",
   "scripts": {
     "serve": "vue-cli-service serve",
