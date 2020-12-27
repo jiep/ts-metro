@@ -8,7 +8,7 @@
 
 ![tsMetro screenshot](./docs/imgs/tsmetro.png)
 
-https://zealous-lamport-8817af.netlify.app
+https://ts-metro.netlify.app
 
 ## Project setup
 ```
