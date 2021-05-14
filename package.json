@@ -16,7 +16,7 @@
     "@tailwindcss/forms": "0.3.2",
     "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
     "@types/chai": "4.2.18",
-    "@types/mocha": "5.2.7",
+    "@types/mocha": "8.2.2",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "@vue/cli-plugin-babel": "4.5.13",
