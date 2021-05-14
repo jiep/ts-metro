@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.2.1",
-    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^5.2.4",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
