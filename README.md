@@ -6,7 +6,7 @@
 
 ## Demo
 
-![tsMetro screenshot](./docs/imgs/tsmetro.png)
+[![tsMetro screenshot](./docs/imgs/tsmetro.png)](https://ts-metro.netlify.app)
 
 https://ts-metro.netlify.app
 
