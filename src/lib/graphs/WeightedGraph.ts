@@ -21,8 +21,10 @@ export default class WeightedGraph extends Graph {
 
   public connect (i: number, j: number, weight?: number) {
     super.connect(i, j)
+    /* eslint-disable @typescript-eslint/no-non-null-assertion */
     this.weightedMatrix[i][j] = weight!
     if (super.getClass === GraphClass.UNDIRECTED) {
+      /* eslint-disable @typescript-eslint/no-non-null-assertion */
       this.weightedMatrix[j][i] = weight!
     }
   }
@@ -92,6 +94,7 @@ export default class WeightedGraph extends Graph {
     return path
   }
 
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   public shortestPath (i: number, j: number): Array<any> {
     const floyd = this.floyd()
     const [distance, path] = floyd

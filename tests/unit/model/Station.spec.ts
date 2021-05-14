@@ -8,8 +8,8 @@ describe('Station', () => {
   describe('Constructor', () => {
     it('should create a new `Station`', () => {
       station = new Station(2, 'Atocha')
-      const name = station.getName
-      const id = station.getId
+      const name = station.getName()
+      const id = station.getId()
       expect(name).to.equal('Atocha')
       expect(id).to.equal(2)
     })
@@ -21,24 +21,24 @@ describe('Station', () => {
     })
 
     it('should return the correct `id`', () => {
-      const id: number = station.getId
+      const id: number = station.getId()
       expect(id).to.equal(1)
     })
 
     it('should return the correct `name`', () => {
-      const name: string = station.getName
+      const name: string = station.getName()
       expect(name).to.equal('Sol')
     })
 
     it('should be able to change the `id`', () => {
-      station.setId = 3
-      const newId = station.getId
+      station.setId(3)
+      const newId = station.getId()
       expect(newId).to.equal(3)
     })
 
     it('should be able to change the `name`', () => {
-      station.setName = 'Chamartín'
-      const newName = station.getName
+      station.setName('Chamartín')
+      const newName = station.getName()
       expect(newName).to.equal('Chamartín')
     })
   })

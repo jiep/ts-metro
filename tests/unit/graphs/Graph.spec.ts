@@ -6,7 +6,6 @@ import { expect } from 'chai'
 describe('Graph', () => {
   let graph: Graph
   let directedGraph: Graph
-  const adjacencyMatrix: number[][] = [[0, 1, 1], [1, 0, 1], [1, 1, 0]]
 
   describe('Constructor', () => {
     it('should create a new UNDIRECTED `Graph`', () => {

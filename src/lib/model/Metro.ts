@@ -7,16 +7,16 @@ export default class Metro {
     this.stations = stations
   }
 
-  get getStations (): Array<Station> {
+  getStations (): Array<Station> {
     return this.stations
   }
 
-  set setStations (stations: Array<Station>) {
+  setStations (stations: Array<Station>) {
     this.stations = stations
   }
 
   getStationsNumber (): number {
-    return this.getStations.length
+    return this.getStations().length
   }
 
   addStation (station: Station) {
@@ -24,6 +24,7 @@ export default class Metro {
   }
 
   public getStationById (id: number): Station {
-    return this.getStations.find(x => x.getId === id)!
+    /* eslint-disable @typescript-eslint/no-non-null-assertion */
+    return this.getStations().find(x => x.getId() === id)!
   }
 }
