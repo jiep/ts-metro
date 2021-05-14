@@ -7,19 +7,19 @@ export default class Station {
       this.id = id
     }
 
-    public get getName (): string {
+    public getName (): string {
       return this.name
     }
 
-    public get getId (): number {
+    public getId (): number {
       return this.id
     }
 
-    public set setName (name: string) {
+    public setName (name: string) {
       this.name = name
     }
 
-    public set setId (id: number) {
+    public setId (id: number) {
       this.id = id
     }
 

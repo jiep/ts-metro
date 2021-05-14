@@ -17,7 +17,7 @@ describe('Metro', () => {
   describe('Constructor', () => {
     it('should create a new `Metro`', () => {
       const metro = new Metro(stations)
-      expect(metro.getStations.length).to.equal(3)
+      expect(metro.getStations().length).to.equal(3)
     })
   })
 
@@ -31,7 +31,7 @@ describe('Metro', () => {
     })
 
     it('should return the correct `stations`', () => {
-      const stations: Array<Station> = metro.getStations
+      const stations: Array<Station> = metro.getStations()
       const station1: Station = stations[0]
       const station2: Station = stations[1]
       const station3: Station = stations[2]
@@ -43,8 +43,8 @@ describe('Metro', () => {
 
     it('should be able to change the `stations`', () => {
       const newStation = new Station(4, 'Nuevos Ministerios')
-      metro.setStations = [newStation]
-      expect(metro.getStations.length).to.equal(1)
+      metro.setStations([newStation])
+      expect(metro.getStations().length).to.equal(1)
     })
   })
 
@@ -68,10 +68,10 @@ describe('Metro', () => {
       const station: Station = new Station(1, 'Sol')
       metro.addStation(station)
       expect(metro.getStationsNumber()).to.equal(1)
-      expect(metro.getStations[0].getName).to.equal('Sol')
-      expect(metro.getStations[0].getId).to.equal(1)
+      expect(metro.getStations()[0].getName).to.equal('Sol')
+      expect(metro.getStations()[0].getId).to.equal(1)
       /* eslint-disable no-unused-expressions */
-      expect(metro.getStations[1]).to.be.undefined
+      expect(metro.getStations()[1]).to.be.undefined
     })
   })
 

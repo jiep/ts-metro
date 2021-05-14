@@ -6,13 +6,13 @@
           span.text-gray-700 Estación de origen
           select.block.w-full.mt-1.border.border-gray-600.rounded-md.border-transparent(v-model='selectedOrigin', class='focus:border-gray-500 focus:bg-white focus:ring-0')
             option(value="", disabled) Selecciona una estación de origen
-            option(:value="s.getId" v-for="(s, i) in stations") {{s.getName}}
+            option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
 
         label.block.mb-8
           span.text-gray-700 Estación de destino
           select.block.w-full.mt-1.border.border-gray-600.rounded-md.border-transparent(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0')
             option(value="", disabled) Selecciona una estación de destino
-            option(:value="s.getId" v-for="(s, i) in stations") {{s.getName}}
+            option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
 
         .flex.justify-items-end
           button.flex-1.border.border-red-500.bg-red-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-red-600 focus:outline-none focus:shadow-outline') Buscar ruta más corta
@@ -23,9 +23,9 @@
           .flex.flex-col.overflow-y-auto.h-full
             section
               h1.text-xl.text-gray-700.block.text-center.mb-4 Ruta más corta desde
-                label.text-xs.px-2.py-1.rounded.bg-green-300.text-black.mx-2 {{metro.getStationById(selectedOrigin).getName}}
+                label.text-xs.px-2.py-1.rounded.bg-green-300.text-black.mx-2 {{metro.getStationById(selectedOrigin).getName()}}
                 | hasta
-                label.text-xs.px-2.py-1.rounded.bg-indigo-300.text-black.ml-2 {{metro.getStationById(selectedDestiny).getName}}
+                label.text-xs.px-2.py-1.rounded.bg-indigo-300.text-black.ml-2 {{metro.getStationById(selectedDestiny).getName()}}
               h1.mb-8.text-gray-700.text-center
                 label.text-xs.px-2.py-1.rounded.bg-blue-300.text-black.mr-2 {{distance}}
                 | metros
@@ -51,6 +51,7 @@ export default Vue.extend({
   name: 'Metro',
   data () {
     return {
+      /* eslint-disable @typescript-eslint/no-explicit-any */
       metro: null as any,
       stations: [],
       selectedOrigin: '',
@@ -68,7 +69,7 @@ export default Vue.extend({
     const distances = await responses[1].json()
 
     this.metro = new MetroMadrid(distances, stations)
-    this.stations = stations.sort((a: Station, b: Station) => a.getName.localeCompare(b.getName))
+    this.stations = stations.sort((a: Station, b: Station) => a.getName().localeCompare(b.getName()))
   },
   methods: {
     onClick () {
@@ -81,7 +82,7 @@ export default Vue.extend({
       const stationDestiny: Station = this.metro.getStationById(this.selectedDestiny)
       const [path, distance] = this.metro.getShortestPath(stationOrigin, stationDestiny)
       this.distance = distance
-      this.shortestPath = path.map((x: Station) => x.getName)
+      this.shortestPath = path.map((x: Station) => x.getName())
     }
   }
 })
