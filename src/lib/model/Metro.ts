@@ -16,7 +16,7 @@ export default class Metro {
   }
 
   getStationsNumber (): number {
-    return this.getStations.length
+    return this.getStations().length
   }
 
   addStation (station: Station) {

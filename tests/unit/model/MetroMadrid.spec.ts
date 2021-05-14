@@ -11,11 +11,11 @@ describe('Metro Madrid', () => {
 
   describe('Contructor', () => {
     it('should create the Madrid metro with 276 stations', () => {
-      expect(metro.getStations.length).to.equal(276)
+      expect(metro.getStations().length).to.equal(276)
     })
 
     it('should create the metro with the specific stations', () => {
-      expect(metro.getStations).to.eql(stations)
+      expect(metro.getStations()).to.eql(stations)
     })
   })
 
@@ -40,7 +40,7 @@ describe('Metro Madrid', () => {
     it('should return the shortest path between two given stations', () => {
       const expected = [1, 214, 136, 179, 50, 110, 254, 10, 111, 175, 72, 194, 159, 52, 2]
       const [path, distance] = stationsAndDistance
-      const stations = path.map((x: Station) => x.getId)
+      const stations = path.map((x: Station) => x.getId())
       expect(stations).to.deep.equal(expected)
       expect(distance).to.equal(18041)
     })

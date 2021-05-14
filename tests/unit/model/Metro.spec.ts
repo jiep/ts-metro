@@ -68,8 +68,8 @@ describe('Metro', () => {
       const station: Station = new Station(1, 'Sol')
       metro.addStation(station)
       expect(metro.getStationsNumber()).to.equal(1)
-      expect(metro.getStations()[0].getName).to.equal('Sol')
-      expect(metro.getStations()[0].getId).to.equal(1)
+      expect(metro.getStations()[0].getName()).to.equal('Sol')
+      expect(metro.getStations()[0].getId()).to.equal(1)
       /* eslint-disable no-unused-expressions */
       expect(metro.getStations()[1]).to.be.undefined
     })
