@@ -19,7 +19,7 @@ export default class WeightedGraph extends Graph {
     }
   }
 
-  public connect (i: number, j: number, weight?: number) {
+  public connect (i: number, j: number, weight?: number): void {
     super.connect(i, j)
     /* eslint-disable @typescript-eslint/no-non-null-assertion */
     this.weightedMatrix[i][j] = weight!

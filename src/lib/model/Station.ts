@@ -15,11 +15,11 @@ export default class Station {
       return this.id
     }
 
-    public setName (name: string) {
+    public setName (name: string): void {
       this.name = name
     }
 
-    public setId (id: number) {
+    public setId (id: number): void {
       this.id = id
     }
 
