@@ -11,7 +11,7 @@ export default class Metro {
     return this.stations
   }
 
-  setStations (stations: Array<Station>) {
+  setStations (stations: Array<Station>): void {
     this.stations = stations
   }
 
@@ -19,7 +19,7 @@ export default class Metro {
     return this.getStations().length
   }
 
-  addStation (station: Station) {
+  addStation (station: Station): void {
     this.stations.push(station)
   }
 
