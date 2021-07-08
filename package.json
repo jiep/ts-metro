@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "0.3.3",
-    "@types/chai": "4.2.18",
+    "@types/chai": "4.2.21",
     "@types/mocha": "8.2.2",
     "@typescript-eslint/eslint-plugin": "4.27.0",
     "@typescript-eslint/parser": "4.27.0",
