@@ -36,7 +36,7 @@
     "eslint-plugin-promise": "5.2.0",
     "eslint-plugin-standard": "4.1.0",
     "eslint-plugin-vue": "7.20.0",
-    "postcss": "8.3.11",
+    "postcss": "8.4.5",
     "postcss-import": "14.0.2",
     "postcss-loader": "6.2.1",
     "tailwindcss": "2.2.19",
