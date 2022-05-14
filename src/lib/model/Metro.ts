@@ -1,7 +1,7 @@
 import Station from './Station'
 
 export default class Metro {
-  private stations: Array<Station>;
+  private stations: Array<Station>
 
   constructor (stations: Array<Station>) {
     this.stations = stations

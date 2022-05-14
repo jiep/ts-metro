@@ -1,9 +1,9 @@
 import GraphClass from './GraphClass'
 
 export default class Graph {
-  private class: GraphClass;
-  private verticesNumber: number;
-  private adjacencyMatrix: number[][] = [[]];
+  private class: GraphClass
+  private verticesNumber: number
+  private adjacencyMatrix: number[][] = [[]]
 
   constructor (c: GraphClass, verticesNumber: number) {
     this.class = c

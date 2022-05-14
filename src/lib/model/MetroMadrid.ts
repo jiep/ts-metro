@@ -4,7 +4,7 @@ import GraphClass from '../graphs/GraphClass'
 import Station from './Station'
 
 export default class MetroMadrid extends Metro {
-  public distancesGraph: WeightedGraph;
+  public distancesGraph: WeightedGraph
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
   constructor (distances: Array<any>, stations: Array<Station>) {
