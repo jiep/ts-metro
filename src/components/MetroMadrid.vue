@@ -48,7 +48,7 @@ import MetroMadrid from '@/lib/model/MetroMadrid'
 import Station from '@/lib/model/Station'
 
 export default Vue.extend({
-  name: 'Metro',
+  name: 'MetroMadrid',
   data () {
     return {
       /* eslint-disable @typescript-eslint/no-explicit-any */
