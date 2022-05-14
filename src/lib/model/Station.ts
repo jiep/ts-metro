@@ -1,29 +1,29 @@
 export default class Station {
-    private id: number;
-    private name: string;
+  private id: number
+  private name: string
 
-    constructor (id: number, name: string) {
-      this.name = name
-      this.id = id
-    }
+  constructor (id: number, name: string) {
+    this.name = name
+    this.id = id
+  }
 
-    public getName (): string {
-      return this.name
-    }
+  public getName (): string {
+    return this.name
+  }
 
-    public getId (): number {
-      return this.id
-    }
+  public getId (): number {
+    return this.id
+  }
 
-    public setName (name: string): void {
-      this.name = name
-    }
+  public setName (name: string): void {
+    this.name = name
+  }
 
-    public setId (id: number): void {
-      this.id = id
-    }
+  public setId (id: number): void {
+    this.id = id
+  }
 
-    public toString (): string {
-      return `id: ${this.id}, name: ${this.name}`
-    }
+  public toString (): string {
+    return `id: ${this.id}, name: ${this.name}`
+  }
 }

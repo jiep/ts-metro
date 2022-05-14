@@ -2,7 +2,7 @@ import Graph from './Graph'
 import GraphClass from './GraphClass'
 
 export default class WeightedGraph extends Graph {
-  private weightedMatrix: number[][] = [[]];
+  private weightedMatrix: number[][] = [[]]
 
   constructor (c: GraphClass, verticesNumber: number) {
     super(c, verticesNumber)
