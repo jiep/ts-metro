@@ -4,18 +4,18 @@
     form.bg-white.shadow-xl.rounded-lg.p-8
       label.block.mb-4
         span.text-gray-700 Estación de origen
-        select.block.w-full.mt-1.border.border-gray-600.rounded-md.border-transparent(v-model='selectedOrigin', class='focus:border-gray-500 focus:bg-white focus:ring-0')
+        select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedOrigin', class='focus:border-gray-500 focus:bg-white focus:ring-0')
           option(value="", disabled) Selecciona una estación de origen
           option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
 
       label.block.mb-8
         span.text-gray-700 Estación de destino
-        select.block.w-full.mt-1.border.border-gray-600.rounded-md.border-transparent(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0')
+        select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0')
           option(value="", disabled) Selecciona una estación de destino
           option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
 
       .flex.justify-items-end
-        button.flex-1.border.border-red-500.bg-red-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-red-600 focus:outline-none focus:shadow-outline') Buscar ruta más corta
+        button.flex-1.border.border-red-500.bg-red-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-red-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-red-500') Buscar ruta más corta
 
   section.flex-1.p-8.overflow-y-auto
     .bg-white.shadow-xl.rounded-lg.p-8.h-full
