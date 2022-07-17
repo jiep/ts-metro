@@ -21,14 +21,9 @@
     .bg-white.shadow-xl.rounded-lg.p-8.h-full
       template(v-if="clicked")
         .flex.flex-col.overflow-y-auto.h-full
-          section
-            h1.text-xl.text-gray-700.block.text-center.mb-4 Ruta más corta desde
-              label.text-xs.px-2.py-1.rounded.bg-green-300.text-black.mx-2 {{metro.getStationById(selectedOrigin).getName()}}
-              | hasta
-              label.text-xs.px-2.py-1.rounded.bg-indigo-300.text-black.ml-2 {{metro.getStationById(selectedDestiny).getName()}}
-            h1.mb-8.text-gray-700.text-center
-              label.text-xs.px-2.py-1.rounded.bg-blue-300.text-black.mr-2 {{distance}}
-              | metros
+          StatsItem.mb-16(:from="metro.getStationById(selectedOrigin).getName()",
+                    :to="metro.getStationById(selectedDestiny).getName()",
+                    :distance="distance")
           section.flex.flex-col.overflow-y-auto.h-full
             .flex.flex-col.text-center.items-center(v-for="(station, i) in shortestPath")
               StationItem(:name="station")
@@ -47,11 +42,13 @@ import { defineComponent } from 'vue'
 import MetroMadrid from '@/lib/model/MetroMadrid'
 import Station from '@/lib/model/Station'
 import StationItem from '@/components/StationItem.vue'
+import StatsItem from '@/components/StatsItem.vue'
 
 export default defineComponent({
   name: 'MetroMadrid',
   components: {
-    StationItem
+    StationItem,
+    StatsItem
   },
   data () {
     return {
