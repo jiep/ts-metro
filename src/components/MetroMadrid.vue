@@ -2,21 +2,20 @@
 .flex.opacity-90.overflow-y-auto
   section.flex.p-8.justify-center.items-center
     form.bg-white.shadow-xl.rounded-lg.p-8
-      label.block.mb-4
+     label.block.mb-4
         span.text-gray-700 Estación de origen
         select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedOrigin', class='focus:border-gray-500 focus:bg-white focus:ring-0')
           option(value="", disabled) Selecciona una estación de origen
           option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
 
-      label.block.mb-8
-        span.text-gray-700 Estación de destino
-        select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0')
-          option(value="", disabled) Selecciona una estación de destino
-          option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
+        label.block.mb-8
+          span.text-gray-700 Estación de destino
+          select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0')
+            option(value="", disabled) Selecciona una estación de destino
+            option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
 
-      .flex.justify-items-end
-        button.flex-1.border.border-red-500.bg-red-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-red-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-red-500') Buscar ruta más corta
-
+        .flex.justify-items-end
+          button.flex-1.border.border-red-500.bg-red-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-red-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-red-500') Buscar ruta más corta
   section.flex-1.p-8.overflow-y-auto
     .bg-white.shadow-xl.rounded-lg.p-8.h-full
       template(v-if="clicked")
@@ -31,9 +30,9 @@
                 path(fill='currentColor' d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z')
 
       section.flex.flex-col.justify-center.items-center.h-full.text-center(v-else)
-        svg.text-gray-400.mb-4.w-12(aria-hidden='true' focusable='false' data-prefix='fas' data-icon='clipboard-list' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512')
-          path(fill='currentColor' d='M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM96 424c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm96-192c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm128 368c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z')
-        h1.text-gray-400 Selecciona estaciones de origen y destino para calcular la ruta mínima
+        WarningItem(v-show="!sameStations" message="Selecciona estaciones de origen y destino para calcular la ruta mínima")
+        AlertItem(v-show="sameStations" message="Las estaciones de origen y destino no pueden coincidir")
+
 </template>
 
 <script lang="ts">
@@ -43,12 +42,16 @@ import MetroMadrid from '@/lib/model/MetroMadrid'
 import Station from '@/lib/model/Station'
 import StationItem from '@/components/StationItem.vue'
 import StatsItem from '@/components/StatsItem.vue'
+import AlertItem from '@/components/AlertItem.vue'
+import WarningItem from '@/components/WarningItem.vue'
 
 export default defineComponent({
   name: 'MetroMadrid',
   components: {
     StationItem,
-    StatsItem
+    StatsItem,
+    AlertItem,
+    WarningItem
   },
   data () {
     return {
@@ -59,7 +62,8 @@ export default defineComponent({
       selectedDestiny: '',
       shortestPath: [],
       distance: 0,
-      clicked: false
+      clicked: false,
+      sameStations: false
     }
   },
   async mounted () {
@@ -75,7 +79,7 @@ export default defineComponent({
   methods: {
     onClick () {
       if (this.selectedOrigin === this.selectedDestiny) {
-        alert('Las estaciones de origen y destino no pueden coincidir')
+        this.sameStations = true
         return
       }
       this.clicked = true
