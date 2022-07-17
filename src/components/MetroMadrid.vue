@@ -31,8 +31,8 @@
               | metros
           section.flex.flex-col.overflow-y-auto.h-full
             .flex.flex-col.text-center.items-center(v-for="(station, i) in shortestPath")
-              p.text-xl.text-gray-800.p-2 {{station}}
-              svg.w-4.fill-current.text-red-400(aria-hidden='true' focusable='false' data-prefix='fas' data-icon='chevron-down' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512', v-if="shortestPath.length - 1 !== i")
+              StationItem(:name="station")
+              svg.w-6.fill-current.text-red-400.m-2(aria-hidden='true' focusable='false' data-prefix='fas' data-icon='chevron-down' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512', v-if="shortestPath.length - 1 !== i")
                 path(fill='currentColor' d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z')
 
       section.flex.flex-col.justify-center.items-center.h-full.text-center(v-else)
@@ -46,9 +46,13 @@ import { defineComponent } from 'vue'
 
 import MetroMadrid from '@/lib/model/MetroMadrid'
 import Station from '@/lib/model/Station'
+import StationItem from '@/components/StationItem.vue'
 
 export default defineComponent({
   name: 'MetroMadrid',
+  components: {
+    StationItem
+  },
   data () {
     return {
       /* eslint-disable @typescript-eslint/no-explicit-any */
