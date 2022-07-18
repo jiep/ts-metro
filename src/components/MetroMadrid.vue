@@ -53,10 +53,10 @@ export default defineComponent({
     return {
       /* eslint-disable @typescript-eslint/no-explicit-any */
       metro: null as any,
-      stations: [],
+      stations: new Array<Station>(),
       selectedOrigin: '',
       selectedDestiny: '',
-      shortestPath: [],
+      shortestPath: new Array<string>,
       distance: 0,
       clicked: false,
       sameStations: false
