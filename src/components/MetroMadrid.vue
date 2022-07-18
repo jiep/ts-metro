@@ -6,13 +6,13 @@
         span.text-gray-700 Estación de origen
         select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedOrigin', class='focus:border-gray-500 focus:bg-white focus:ring-0')
           option(value="", disabled) Selecciona una estación de origen
-          option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
+          option(:value="s.getId()" v-for="s in stations") {{s.getName()}}
 
         label.block.mb-8
           span.text-gray-700 Estación de destino
           select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0')
             option(value="", disabled) Selecciona una estación de destino
-            option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
+            option(:value="s.getId()" v-for="s in stations") {{s.getName()}}
 
         .flex.justify-items-end
           button.flex-1.border.border-blue-500.bg-blue-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-blue-500') Buscar ruta más corta
