@@ -56,7 +56,7 @@ export default defineComponent({
       stations: new Array<Station>(),
       selectedOrigin: '',
       selectedDestiny: '',
-      shortestPath: new Array<string>,
+      shortestPath: new Array<string>(),
       distance: 0,
       clicked: false,
       sameStations: false
