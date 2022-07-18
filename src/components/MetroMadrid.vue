@@ -80,14 +80,16 @@ export default defineComponent({
     onClick () {
       if (this.selectedOrigin === this.selectedDestiny) {
         this.sameStations = true
-        return
+        this.clicked = false
+      } else {
+        this.sameStations = false
+        this.clicked = true
+        const stationOrigin: Station = this.metro.getStationById(this.selectedOrigin)
+        const stationDestiny: Station = this.metro.getStationById(this.selectedDestiny)
+        const [path, distance] = this.metro.getShortestPath(stationOrigin, stationDestiny)
+        this.distance = distance
+        this.shortestPath = path.map((x: Station) => x.getName())
       }
-      this.clicked = true
-      const stationOrigin: Station = this.metro.getStationById(this.selectedOrigin)
-      const stationDestiny: Station = this.metro.getStationById(this.selectedDestiny)
-      const [path, distance] = this.metro.getShortestPath(stationOrigin, stationDestiny)
-      this.distance = distance
-      this.shortestPath = path.map((x: Station) => x.getName())
     }
   }
 })
