@@ -15,7 +15,7 @@
             option(:value="s.getId()" v-for="(s, i) in stations") {{s.getName()}}
 
         .flex.justify-items-end
-          button.flex-1.border.border-red-500.bg-red-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-red-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-red-500') Buscar ruta más corta
+          button.flex-1.border.border-blue-500.bg-blue-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-blue-500') Buscar ruta más corta
   section.flex-1.p-8.overflow-y-auto
     .bg-white.shadow-xl.rounded-lg.p-8.h-full
       template(v-if="clicked")
