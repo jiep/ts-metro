@@ -1,6 +1,6 @@
 [
-  {"id":  0, "name":  "Abrantes"},
-  {"id":  1, "name":  "Acacias"},
+	{"id":  0, "name":  "Abrantes"},
+	{"id":  1, "name":  "Acacias"},
 	{"id":  2, "name":  "Aeropuerto T1-T2-T3"},
 	{"id":  3, "name":  "Aeropuerto T4"},
 	{"id":  4, "name":  "Alameda de Osuna"},
@@ -273,6 +273,6 @@
 	{"id":271, "name":  "Vinateros"},
 	{"id":272, "name":  "Virgen del Cortijo"},
 	{"id":273, "name":  "Vista Alegre"},
-  {"id":274, "name":  "Arroyofresno"},
-  {"id":275, "name":  "Paco de Lucía"}
+	{"id":274, "name":  "Arroyofresno"},
+	{"id":275, "name":  "Paco de Lucía"}
 ]
