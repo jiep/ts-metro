@@ -20,10 +20,10 @@
     .bg-white.shadow-xl.rounded-lg.p-8.h-full
       template(v-if="clicked")
         .flex.flex-col.overflow-y-auto.h-full
-          StatsItem.mb-16(:from="metro.getStationById(selectedOrigin).getName()",
+          StatsItem(:from="metro.getStationById(selectedOrigin).getName()",
                     :to="metro.getStationById(selectedDestiny).getName()",
                     :distance="distance")
-          section.flex.flex-col.overflow-y-auto.h-full
+          section.flex.flex-col.overflow-y-auto.h-full.border-t.border-gray-300.py-8
             StationList(:stations="shortestPath")
       section.flex.flex-col.justify-center.items-center.h-full.text-center(v-else)
         WarningItem(v-show="!sameStations" message="Selecciona estaciones de origen y destino para calcular la ruta mínima")
