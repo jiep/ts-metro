@@ -22,9 +22,9 @@ describe('Metro', () => {
   })
 
   describe('Getters and setters', () => {
-    const sol = new Station(1, 'Sol', ["1"])
-    const atocha = new Station(2, 'Atocha', ["2"])
-    const chamartin = new Station(3, 'Chamartín', ["1"])
+    const sol = new Station(1, 'Sol', ['1'])
+    const atocha = new Station(2, 'Atocha', ['2'])
+    const chamartin = new Station(3, 'Chamartín', ['1'])
 
     beforeEach(() => {
       metro = new Metro(stations)
@@ -42,7 +42,7 @@ describe('Metro', () => {
     })
 
     it('should be able to change the `stations`', () => {
-      const newStation = new Station(4, 'Nuevos Ministerios', ["10"])
+      const newStation = new Station(4, 'Nuevos Ministerios', ['10'])
       metro.setStations([newStation])
       expect(metro.getStations().length).to.equal(1)
     })
@@ -65,7 +65,7 @@ describe('Metro', () => {
     })
 
     it('should add a new station to the metro', () => {
-      const station: Station = new Station(1, 'Sol', ["10"])
+      const station: Station = new Station(1, 'Sol', ['1'])
       metro.addStation(station)
       expect(metro.getStationsNumber()).to.equal(1)
       expect(metro.getStations()[0].getName()).to.equal('Sol')
