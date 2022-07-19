@@ -19,7 +19,7 @@ describe('Station', () => {
 
   describe('Getters and setters', () => {
     beforeEach(function () {
-      station = new Station(1, 'Sol', ['1','2'])
+      station = new Station(1, 'Sol', ['1', '2'])
     })
 
     it('should return the correct `id`', () => {
@@ -58,7 +58,7 @@ describe('Station', () => {
 
   describe('To String', () => {
     before(() => {
-      station = new Station(1, 'Atocha', ['1','10'])
+      station = new Station(1, 'Atocha', ['1', '10'])
     })
 
     it('should return a string with the information of the object', () => {
