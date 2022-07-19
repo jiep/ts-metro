@@ -6,7 +6,7 @@ import data from '../../../public/data/stations.json'
 import distances from '../../../public/data/distances.json'
 
 describe('Metro Madrid', () => {
-  const stations = data.map(x => new Station(x.id, x.name))
+  const stations = data.map(x => new Station(x.id, x.name, []))
   const metro: MetroMadrid = new MetroMadrid(distances, stations)
 
   describe('Contructor', () => {
@@ -22,7 +22,7 @@ describe('Metro Madrid', () => {
   describe('Find the station by id', () => {
     it('should return the the station given the id', () => {
       const s1: Station = metro.getStationById(1)
-      const station = new Station(1, 'Acacias')
+      const station = new Station(1, 'Acacias', [])
       expect(s1).to.eql(station)
     })
   })
