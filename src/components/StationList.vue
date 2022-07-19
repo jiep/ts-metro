@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex.flex-col.text-center.items-center(v-for="(station, i) in stations")
-    StationItem(class="w-full" :name="station" :is-last="stations.length - 1 === i")
+    StationItem(class="w-full" :station="station" :is-last="stations.length - 1 === i")
 </template>
 
 <script lang="ts">
