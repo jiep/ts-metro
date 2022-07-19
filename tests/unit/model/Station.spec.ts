@@ -62,7 +62,7 @@ describe('Station', () => {
     })
 
     it('should return a string with the information of the object', () => {
-      expect(station.toString()).to.equal('id: 1, name: Atocha, lines: [1, 10]')
+      expect(station.toString()).to.equal('id: 1, name: Atocha, connectedTo: 1,10')
     })
   })
 })

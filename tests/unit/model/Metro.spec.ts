@@ -6,11 +6,11 @@ import { expect } from 'chai'
 describe('Metro', () => {
   let metro: Metro
   let stations: Array<Station>
-  const station1: Station = new Station(1, 'Sol', ['1'])
-  const station2: Station = new Station(2, 'Atocha', ['2', '3'])
+  const station1: Station = new Station(1, 'Sol', ['1', '2', '3'])
+  const station2: Station = new Station(2, 'Atocha', ['1'])
 
   before(() => {
-    const station3: Station = new Station(3, 'Chamartín', ['4'])
+    const station3: Station = new Station(3, 'Chamartín', ['1', '10'])
     stations = [station1, station2, station3]
   })
 
@@ -22,9 +22,9 @@ describe('Metro', () => {
   })
 
   describe('Getters and setters', () => {
-    const sol = new Station(1, 'Sol', ['1'])
-    const atocha = new Station(2, 'Atocha', ['2'])
-    const chamartin = new Station(3, 'Chamartín', ['1'])
+    const sol = new Station(1, 'Sol', ['1', '2', '3'])
+    const atocha = new Station(2, 'Atocha', ['1'])
+    const chamartin = new Station(3, 'Chamartín', ['1', '10'])
 
     beforeEach(() => {
       metro = new Metro(stations)
@@ -65,7 +65,7 @@ describe('Metro', () => {
     })
 
     it('should add a new station to the metro', () => {
-      const station: Station = new Station(1, 'Sol', ['1'])
+      const station: Station = new Station(1, 'Sol', ['1', '2', '3'])
       metro.addStation(station)
       expect(metro.getStationsNumber()).to.equal(1)
       expect(metro.getStations()[0].getName()).to.equal('Sol')

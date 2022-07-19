@@ -22,7 +22,7 @@ describe('Metro Madrid', () => {
   describe('Find the station by id', () => {
     it('should return the the station given the id', () => {
       const s1: Station = metro.getStationById(1)
-      const station = new Station(1, 'Acacias', ['1'])
+      const station = new Station(1, 'Acacias', ['3', '5'])
       expect(s1).to.eql(station)
     })
   })
