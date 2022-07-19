@@ -66,7 +66,7 @@ export default defineComponent({
     const responses = await Promise.all([fetch('/data/stations.json'), fetch('/data/distances.json')])
 
     const dataStations = await responses[0].json()
-    const stations = dataStations.map((x: any) => new Station(x.id, x.name))
+    const stations = dataStations.map((x: any) => new Station(x.id, x.name, x.lines))
     const distances = await responses[1].json()
 
     this.metro = new MetroMadrid(distances, stations)
@@ -84,7 +84,7 @@ export default defineComponent({
         const stationDestiny: Station = this.metro.getStationById(this.selectedDestiny)
         const [path, distance] = this.metro.getShortestPath(stationOrigin, stationDestiny)
         this.distance = distance
-        this.shortestPath = path.map((x: Station) => x.getName())
+        this.shortestPath = path
       }
     }
   }
