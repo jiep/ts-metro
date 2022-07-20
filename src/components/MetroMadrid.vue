@@ -24,7 +24,7 @@
                     :to="metro.getStationById(selectedDestiny).getName()",
                     :distance="distance")
           section.flex.flex-col.overflow-y-auto.h-full.border-t.border-gray-300.py-8
-            StationList(:stations="shortestPath")
+            StationList(:stations="shortestPath", :lines="linesConfig")
       section.flex.flex-col.justify-center.items-center.h-full.text-center(v-else)
         WarningItem(v-show="!sameStations" message="Selecciona estaciones de origen y destino para calcular la ruta mínima")
         AlertItem(v-show="sameStations" message="Las estaciones de origen y destino no pueden coincidir")
@@ -36,6 +36,7 @@ import { defineComponent } from 'vue'
 
 import MetroMadrid from '@/lib/model/MetroMadrid'
 import Station from '@/lib/model/Station'
+import Line from '@/lib/model/Line'
 import StationList from '@/components/StationList.vue'
 import StatsItem from '@/components/StatsItem.vue'
 import AlertItem from '@/components/AlertItem.vue'
@@ -57,19 +58,35 @@ export default defineComponent({
       selectedOrigin: '',
       selectedDestiny: '',
       shortestPath: new Array<string>(),
+      linesConfig: new Map<any, any>(),
       distance: 0,
       clicked: false,
       sameStations: false
     }
   },
   async mounted () {
-    const responses = await Promise.all([fetch('/data/stations.json'), fetch('/data/distances.json')])
+    const responses = await Promise.all([
+      fetch('/data/stations.json'),
+      fetch('/data/distances.json'),
+      fetch('/data/lines.json')
+    ])
 
     const dataStations = await responses[0].json()
     const stations = dataStations.map((x: any) => new Station(x.id, x.name, x.lines))
     const distances = await responses[1].json()
-
-    this.metro = new MetroMadrid(distances, stations)
+    const dataLines = await responses[2].json()
+    const lines = dataLines.map((x: any) => new Line(x.name, x.bgColor, x.textColor, x.borderColor))
+    lines.forEach(
+      (x: Line) => this.linesConfig.set(
+        x.getName(),
+        {
+          bgColor: x.getBgColor(),
+          textColor: x.getTextColor(),
+          borderColor: x.getBorderColor()
+        }
+      )
+    )
+    this.metro = new MetroMadrid(distances, stations, lines)
     this.stations = stations.sort((a: Station, b: Station) => a.getName().localeCompare(b.getName()))
   },
   methods: {

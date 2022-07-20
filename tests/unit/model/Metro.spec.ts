@@ -1,22 +1,25 @@
 import Station from '@/lib/model/Station'
 import Metro from '@/lib/model/Metro'
+import Line from '@/lib/model/Line'
 
 import { expect } from 'chai'
 
 describe('Metro', () => {
   let metro: Metro
   let stations: Array<Station>
+  let lines: Array<Line>
   const station1: Station = new Station(1, 'Sol', ['1', '2', '3'])
   const station2: Station = new Station(2, 'Atocha', ['1'])
 
   before(() => {
     const station3: Station = new Station(3, 'Chamartín', ['1', '10'])
     stations = [station1, station2, station3]
+    const line: Line = new Line('1', '#FFFFFF', '#AAAAAA', '#123456')
   })
 
   describe('Constructor', () => {
     it('should create a new `Metro`', () => {
-      const metro = new Metro(stations)
+      const metro = new Metro(stations, lines)
       expect(metro.getStations().length).to.equal(3)
     })
   })
@@ -27,7 +30,7 @@ describe('Metro', () => {
     const chamartin = new Station(3, 'Chamartín', ['1', '10'])
 
     beforeEach(() => {
-      metro = new Metro(stations)
+      metro = new Metro(stations, lines)
     })
 
     it('should return the correct `stations`', () => {
@@ -50,7 +53,7 @@ describe('Metro', () => {
 
   describe('Get stations number', () => {
     before(() => {
-      metro = new Metro([])
+      metro = new Metro([], [])
     })
 
     it('should return the number of stations', () => {
@@ -59,9 +62,20 @@ describe('Metro', () => {
     })
   })
 
+  describe('Get lines number', () => {
+    before(() => {
+      metro = new Metro([], [])
+    })
+
+    it('should return the number of lines', () => {
+      const linesNumbers = metro.getLinesNumber()
+      expect(linesNumbers).to.equal(0)
+    })
+  })
+
   describe('Add new station', () => {
     before(() => {
-      metro = new Metro([])
+      metro = new Metro([], [])
     })
 
     it('should add a new station to the metro', () => {
@@ -77,7 +91,7 @@ describe('Metro', () => {
 
   describe('Get station by id', () => {
     before(() => {
-      metro = new Metro(stations)
+      metro = new Metro(stations, lines)
     })
 
     it('should return the station with the specific id', () => {
