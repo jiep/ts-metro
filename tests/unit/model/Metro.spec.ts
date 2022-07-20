@@ -15,6 +15,7 @@ describe('Metro', () => {
     const station3: Station = new Station(3, 'Chamartín', ['1', '10'])
     stations = [station1, station2, station3]
     const line: Line = new Line('1', '#FFFFFF', '#AAAAAA', '#123456')
+    lines = [line]
   })
 
   describe('Constructor', () => {
