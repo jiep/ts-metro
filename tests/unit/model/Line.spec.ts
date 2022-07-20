@@ -15,13 +15,13 @@ describe('Line', () => {
       expect(name).to.equal('1')
       expect(bgColor).to.equal('#FFFFFF')
       expect(textColor).to.equal('#AAAAAA')
-      expect(borderColor).to.equal('#AAAAAA')
+      expect(borderColor).to.equal('#123456')
     })
   })
 
   describe('Getters', () => {
     beforeEach(function () {
-        line = new Line('1', '#FFFFFF', '#AAAAAA', '#123456')
+      line = new Line('1', '#FFFFFF', '#AAAAAA', '#123456')
     })
 
     it('should return the correct `name`', () => {

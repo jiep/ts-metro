@@ -9,7 +9,7 @@ import Line from '@/lib/model/Line'
 
 describe('Metro Madrid', () => {
   const stations = data.map(x => new Station(x.id, x.name, x.lines))
-  const lines = linesData.map(({name, bgColor, textColor, borderColor}) => new Line(name, bgColor, textColor, borderColor))
+  const lines = linesData.map(x => new Line(x.name, x.bgColor, x.textColor, x.borderColor))
   const metro: MetroMadrid = new MetroMadrid(distances, stations, lines)
 
   describe('Contructor', () => {
