@@ -12,8 +12,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import Line from '@/lib/model/Line'
-
 export default defineComponent({
   name: 'StationItem',
   props: [
