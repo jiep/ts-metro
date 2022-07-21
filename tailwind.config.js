@@ -3,15 +3,15 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: theme => ({
-       'metro': "url('bg.webp')",
-     }),
-     borderWidth: ['first']
+        metro: "url('bg.webp')"
+      }),
+      borderWidth: ['first']
     }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
   plugins: [
     require('@tailwindcss/forms')
-  ],
+  ]
 }
