@@ -69,7 +69,7 @@
 	{"id": 67, "name": "Ciudad de los Ángeles", "lines": ["3"]},
 	{"id": 68, "name": "Ciudad del Cine", "lines": ["ML3"]},
 	{"id": 69, "name": "Ciudad Lineal", "lines": ["5"]},
-	{"id": 70, "name": "Ciudad Universitaria", "lines": []},
+	{"id": 70, "name": "Ciudad Universitaria", "lines": ["6"]},
 	{"id": 71, "name": "Cocheras", "lines": ["ML3"]},
 	{"id": 72, "name": "Colombia", "lines": ["8", "9"]},
 	{"id": 73, "name": "Colón", "lines": ["4"]},
