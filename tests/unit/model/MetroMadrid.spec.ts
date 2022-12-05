@@ -4,10 +4,13 @@ import MetroMadrid from '@/lib/model/MetroMadrid'
 import { expect } from 'chai'
 import data from '../../../public/data/stations.json'
 import distances from '../../../public/data/distances.json'
+import linesData from '../../../public/data/lines.json'
+import Line from '@/lib/model/Line'
 
 describe('Metro Madrid', () => {
-  const stations = data.map(x => new Station(x.id, x.name))
-  const metro: MetroMadrid = new MetroMadrid(distances, stations)
+  const stations = data.map(x => new Station(x.id, x.name, x.lines))
+  const lines = linesData.map(x => new Line(x.name, x.bgColor, x.textColor, x.borderColor))
+  const metro: MetroMadrid = new MetroMadrid(distances, stations, lines)
 
   describe('Contructor', () => {
     it('should create the Madrid metro with 276 stations', () => {
@@ -17,12 +20,16 @@ describe('Metro Madrid', () => {
     it('should create the metro with the specific stations', () => {
       expect(metro.getStations()).to.eql(stations)
     })
+
+    it('should create the metro with the specific lines', () => {
+      expect(metro.getLinesNumber()).to.equal(16)
+    })
   })
 
   describe('Find the station by id', () => {
     it('should return the the station given the id', () => {
       const s1: Station = metro.getStationById(1)
-      const station = new Station(1, 'Acacias')
+      const station = new Station(1, 'Acacias', ['3', '5'])
       expect(s1).to.eql(station)
     })
   })
