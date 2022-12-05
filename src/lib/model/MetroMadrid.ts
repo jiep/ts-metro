@@ -2,13 +2,14 @@ import Metro from './Metro'
 import WeightedGraph from '../graphs/WeightedGraph'
 import GraphClass from '../graphs/GraphClass'
 import Station from './Station'
+import Line from './Line'
 
 export default class MetroMadrid extends Metro {
   public distancesGraph: WeightedGraph
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  constructor (distances: Array<any>, stations: Array<Station>) {
-    super(stations)
+  constructor (distances: Array<any>, stations: Array<Station>, lines: Array<Line>) {
+    super(stations, lines)
     const n = stations.length
     this.distancesGraph = new WeightedGraph(GraphClass.UNDIRECTED, n)
     distances.forEach((distance: any) => {
