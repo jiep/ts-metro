@@ -1,10 +1,13 @@
 import Station from './Station'
+import Line from './Line'
 
 export default class Metro {
   private stations: Array<Station>
+  private lines: Array<Line>
 
-  constructor (stations: Array<Station>) {
+  constructor (stations: Array<Station>, lines: Array<Line>) {
     this.stations = stations
+    this.lines = lines
   }
 
   getStations (): Array<Station> {
@@ -13,6 +16,14 @@ export default class Metro {
 
   setStations (stations: Array<Station>): void {
     this.stations = stations
+  }
+
+  getLines (): Array<Line> {
+    return this.lines
+  }
+
+  getLinesNumber (): number {
+    return this.getLines().length
   }
 
   getStationsNumber (): number {
