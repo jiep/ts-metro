@@ -1,5 +1,5 @@
 <template lang="pug">
-section.bg-white
+section
   .max-w-screen-xl.mx-auto
     div
       .flex

@@ -1,5 +1,5 @@
 <template lang="pug">
-.app.w-screen.h-screen.flex.flex-col.bg-metro.bg-contain.bg-center
+.app.w-screen.h-screen.flex.flex-col.bg-gray-300.bg-contain.bg-center
   NavBar/
   router-view/
 </template>
