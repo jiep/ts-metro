@@ -1,0 +1,18 @@
+[
+    {"name":   "1", "bgColor": "#67C0DD", "textColor": "#FFFFFF", "borderColor": "#67C0DD"},
+    {"name":   "2", "bgColor": "#E0292F", "textColor": "#FFFFFF", "borderColor": "#E0292F"},
+    {"name":   "3", "bgColor": "#FFDD70", "textColor": "#1779BA", "borderColor": "#FFDD70"},
+    {"name":   "4", "bgColor": "#CF7700", "textColor": "#FFFFFF", "borderColor": "#CF7700"},
+    {"name":   "5", "bgColor": "#98BE13", "textColor": "#FFFFFF", "borderColor": "#98BE13"},
+    {"name":   "6", "bgColor": "#C0BAB0", "textColor": "#FFFFFF", "borderColor": "#C0BAB0"},
+    {"name":   "7", "bgColor": "#F19C0C", "textColor": "#FFFFFF", "borderColor": "#F19C0C"},
+    {"name":   "8", "bgColor": "#EBA6C9", "textColor": "#FFFFFF", "borderColor": "#EBA6C9"},
+    {"name":   "9", "bgColor": "#9E2F8A", "textColor": "#FFFFFF", "borderColor": "#9E2F8A"},
+    {"name":  "10", "bgColor": "#005FA9", "textColor": "#FFFFFF", "borderColor": "#005FA9"},
+    {"name":  "11", "bgColor": "#009739", "textColor": "#FFFFFF", "borderColor": "#009739"},
+    {"name":  "12", "bgColor": "#AF9F00", "textColor": "#FFFFFF", "borderColor": "#AF9F00"},
+    {"name":   "R", "bgColor": "#FFFFFF", "textColor": "#005FA9", "borderColor": "#005FA9"},
+    {"name": "ML1", "bgColor": "#FFFFFF", "textColor": "#5F87C0", "borderColor": "#5F87C0"},
+    {"name": "ML2", "bgColor": "#FFFFFF", "textColor": "#9E2F8A", "borderColor": "#9E2F8A"},
+    {"name": "ML3", "bgColor": "#FFFFFF", "textColor": "#E34A3A", "borderColor": "#E34A3A"}
+]
