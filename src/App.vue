@@ -1,22 +1,16 @@
 <template lang="pug">
-.app.w-screen.h-screen.flex.flex-col.bg-metro.bg-contain.bg-center
+.app.w-screen.h-screen.flex.flex-col.bg-gray-300.bg-contain.bg-center
   NavBar/
-  MetroMadrid.flex-1/
+  router-view/
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import NavBar from '@/components/NavBar.vue'
 
-import MetroMadrid from './components/MetroMadrid.vue'
-import NavBar from './components/NavBar.vue'
-
-export default defineComponent({
+export default {
+  name: 'HomeView',
   components: {
-    MetroMadrid,
     NavBar
   }
-})
+}
 </script>
-
-<style>
-</style>
