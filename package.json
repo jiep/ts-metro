@@ -48,6 +48,6 @@
     "vue-cli-plugin-pug": "2.0.0"
   },
   "peerDependencies": {
-    "postcss": "8.0.0"
+    "postcss": "8.4.19"
   }
 }
