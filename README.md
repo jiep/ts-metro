@@ -37,7 +37,7 @@ yarn lint
 
 ## Build with
 
-* [Vue.js](vuejs.org)
+* [Vue.js](https://vuejs.org)
 * [Tailwind CSS](https://tailwindcss.com)
 
 ## References
