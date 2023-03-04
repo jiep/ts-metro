@@ -1,6 +1,6 @@
 {
   "name": "ts-metro",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
