@@ -4,6 +4,7 @@ module.exports = {
     msTileColor: '#2563eb',
     iconPaths: {
       faviconSVG: null,
+      favicon32: null,
       msTileImage: null
     },
     manifestOptions: {
