@@ -14,8 +14,12 @@
           option(value="", disabled) Selecciona una estación de destino
           option(:value="s.getId()" v-for="s in stations") {{s.getName()}}
 
-      .flex.justify-items-end
-        button.flex-1.border.border-blue-500.bg-blue-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-blue-500') Buscar ruta más corta
+      .flex.place-items-center
+        button.flex.justify-center.items-center.place-items-center.border.border-blue-500.bg-blue-500.rounded-md.px-4.py-2.transition.duration-500.ease.select.w-full(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-blue-500')
+          p.text-white.mr-2 Buscar ruta más corta
+          svg.fill-white.w-4.animate-spin(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512', v-if="isLoading")
+            path(d='M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z')
+
   section.flex.flex-1.m-4(class="md:overflow-y-auto")
     .bg-gray-50.shadow-xl.rounded-lg.p-4.w-full(class="md:h-full md:p-8")
       template(v-if="clicked")
@@ -61,7 +65,8 @@ export default defineComponent({
       linesConfig: new Map<any, any>(),
       distance: 0,
       clicked: false,
-      sameStations: false
+      sameStations: false,
+      isLoading: false
     }
   },
   async mounted () {
@@ -91,6 +96,7 @@ export default defineComponent({
   },
   methods: {
     onClick () {
+      this.isLoading = true;
       if (this.selectedOrigin === this.selectedDestiny) {
         this.sameStations = true
         this.clicked = false
@@ -103,6 +109,7 @@ export default defineComponent({
         this.distance = distance
         this.shortestPath = path
       }
+      this.isLoading = false;
     }
   }
 })
