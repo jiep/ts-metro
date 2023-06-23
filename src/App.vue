@@ -1,5 +1,5 @@
 <template lang="pug">
-.app.flex.flex-col.bg-gray-300.bg-contain.bg-center.overflow-x-auto(class="md:h-screen md:w-screen")
+.app.flex.flex-col.bg-gray-300.bg-contain.bg-center.overflow-x-auto.h-screen(class="md:w-screen")
   NavBar/
   router-view/
 </template>

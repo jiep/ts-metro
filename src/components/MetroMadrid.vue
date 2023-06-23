@@ -1,5 +1,5 @@
 <template lang="pug">
-.opacity-90(class="md:flex md:overflow-y-auto")
+.opacity-90.h-full(class="md:flex md:overflow-y-auto")
   section.flex.m-4.justify-center.items-center
     form.bg-gray-50.shadow-xl.rounded-lg.p-4.w-full(class="md:p-8")
       label.block.mb-4
