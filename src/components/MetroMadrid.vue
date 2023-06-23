@@ -96,7 +96,7 @@ export default defineComponent({
   },
   methods: {
     onClick () {
-      this.isLoading = true;
+      this.isLoading = true
       if (this.selectedOrigin === this.selectedDestiny) {
         this.sameStations = true
         this.clicked = false
@@ -109,7 +109,7 @@ export default defineComponent({
         this.distance = distance
         this.shortestPath = path
       }
-      this.isLoading = false;
+      this.isLoading = false
     }
   }
 })
