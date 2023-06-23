@@ -5,6 +5,9 @@ module.exports = {
     iconPaths: {
       faviconSVG: null,
       msTileImage: null
+    },
+    manifestOptions: {
+      background_color: "#2563eb"
     }
     // workboxPluginMode: "GenerateSW",
     // workboxOptions: {
