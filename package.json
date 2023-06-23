@@ -30,7 +30,6 @@
     "@vue/compiler-sfc": "3.3.4",
     "@vue/eslint-config-standard": "8.0.1",
     "@vue/eslint-config-typescript": "11.0.3",
-    "@vue/language-plugin-pug": "1.8.1",
     "@vue/test-utils": "2.3.2",
     "autoprefixer": "10.4.14",
     "chai": "4.3.7",
