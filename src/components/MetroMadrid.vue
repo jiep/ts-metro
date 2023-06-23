@@ -1,5 +1,5 @@
 <template lang="pug">
-.opacity-90.overflow-y-auto(class="md:flex")
+.opacity-90(class="md:flex md:overflow-y-auto")
   section.flex.m-4.justify-center.items-center
     form.bg-gray-50.shadow-xl.rounded-lg.p-8.w-full
       label.block.mb-4
@@ -16,16 +16,16 @@
 
       .flex.justify-items-end
         button.flex-1.border.border-blue-500.bg-blue-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-blue-500') Buscar ruta más corta
-  section.flex.flex-1.m-4.overflow-y-auto
-    .bg-gray-50.shadow-xl.rounded-lg.p-8.h-full.w-full
+  section.flex.flex-1.m-4(class="md:overflow-y-auto")
+    .bg-gray-50.shadow-xl.rounded-lg.p-8.w-full(class="md:h-full")
       template(v-if="clicked")
-        .flex.flex-col.overflow-y-auto.h-full
+        .flex.flex-col(class="md:h-full md:overflow-y-auto")
           StatsItem.bg-gray-50(:from="metro.getStationById(selectedOrigin).getName()",
                     :to="metro.getStationById(selectedDestiny).getName()",
                     :distance="distance")
-          section.flex.flex-col.overflow-y-auto.h-full.border-t.border-gray-300.pt-8
+          section.flex.flex-col.border-t.border-gray-300.pt-8(class="md:h-full md:overflow-y-auto")
             StationList(:stations="shortestPath", :lines="linesConfig")
-      section.flex.flex-col.justify-center.items-center.h-full.text-center(v-else)
+      section.flex.flex-col.justify-center.items-center.text-center(class="md:h-full", v-else)
         WarningItem(v-show="!sameStations" message="Selecciona estaciones de origen y destino para calcular la ruta mínima")
         AlertItem(v-show="sameStations" message="Las estaciones de origen y destino no pueden coincidir")
 
