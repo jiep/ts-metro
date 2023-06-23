@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex.flex-col.items-center.w-full
-  .flex.bg-red-50.px-4.py-2.border-l-4.border-r-4.border.border-red-600.shadow-xl.rounded-xl.justify-between.w-full(class="md:w-3/4")
+  .flex.bg-red-50.px-2.py-2.border-l-4.border-r-4.border.border-red-600.shadow-xl.rounded-xl.justify-between.w-full(class="md:w-3/4")
     .flex-row.flex.mr-4
       span.text-left.antialiased.text-gray-800 {{station.name}}
     .flex.items-center.flex.flex-nowrap.overflow-auto
