@@ -1,7 +1,7 @@
 <template lang="pug">
 .opacity-90(class="md:flex md:overflow-y-auto")
   section.flex.m-4.justify-center.items-center
-    form.bg-gray-50.shadow-xl.rounded-lg.p-8.w-full
+    form.bg-gray-50.shadow-xl.rounded-lg.p-4.w-full(class="md:p-8")
       label.block.mb-4
         span.text-gray-700 Estación de origen
         select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedOrigin', class='focus:border-gray-500 focus:bg-white focus:ring-0')
@@ -17,7 +17,7 @@
       .flex.justify-items-end
         button.flex-1.border.border-blue-500.bg-blue-500.text-white.rounded-md.px-4.py-2.transition.duration-500.ease.select-none(@click='onClick', :disabled="selectedOrigin === '' && selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-blue-500') Buscar ruta más corta
   section.flex.flex-1.m-4(class="md:overflow-y-auto")
-    .bg-gray-50.shadow-xl.rounded-lg.p-8.w-full(class="md:h-full")
+    .bg-gray-50.shadow-xl.rounded-lg.p-4.w-full(class="md:h-full md:p-8")
       template(v-if="clicked")
         .flex.flex-col(class="md:h-full md:overflow-y-auto")
           StatsItem.bg-gray-50(:from="metro.getStationById(selectedOrigin).getName()",
