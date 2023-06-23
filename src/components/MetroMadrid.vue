@@ -8,7 +8,7 @@
           option(value="", disabled) Selecciona una estación de origen
           option(:value="s.getId()" v-for="s in stations") {{s.getName()}}
 
-      label.block.mb-8
+      label.block.mb-4
         span.text-gray-700 Estación de destino
         select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0')
           option(value="", disabled) Selecciona una estación de destino
