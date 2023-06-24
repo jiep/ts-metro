@@ -11,7 +11,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import AlertIcon from '@/components/AlertIcon.vue';
+import AlertIcon from '@/components/AlertIcon.vue'
 
 export default defineComponent({
   name: 'AlertItem',
