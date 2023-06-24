@@ -1,7 +1,13 @@
 module.exports = {
   pwa: {
-    themeColor: '#dc2626',
-    msTileColor: '#dc2626'
+    themeColor: '#2563eb',
+    msTileColor: '#2563eb',
+    iconPaths: {
+      faviconSVG: null
+    },
+    manifestOptions: {
+      background_color: "#2563eb"
+    }
     // workboxPluginMode: "GenerateSW",
     // workboxOptions: {
     //   navigateFallback: "/index.html",

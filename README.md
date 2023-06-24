@@ -6,9 +6,15 @@
 
 ## Demo
 
-[![tsMetro screenshot](./docs/imgs/tsmetro.png)](https://ts-metro.netlify.app)
-
 https://ts-metro.netlify.app
+
+### Desktop view
+
+[![tsMetro screenshot for desktop](./docs/imgs/tsmetro-desktop.png)](https://ts-metro.netlify.app)
+
+### Mobile view
+
+[![tsMetro screenshot for mobile](./docs/imgs/tsmetro-mobile.png)](https://ts-metro.netlify.app)
 
 ## Project setup
 ```
