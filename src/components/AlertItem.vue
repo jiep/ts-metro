@@ -1,7 +1,7 @@
 <template lang="pug">
-.p-4.text-red-700.border.bg-red-50.w-full(class='border-red-900/10' role='alert')
+.p-4.text-red-700.border.bg-gray-50.w-full(class='border-red-900/10' role='alert')
   .flex.flex-col.place-items-center
-    span.p-2.text-white.bg-red-600.rounded-full
+    span.p-2.text-white.bg-red-800.rounded-full
       AlertIcon.w-12.h-12
     p.mt-4
       strong.block.opacity-90

@@ -4,13 +4,13 @@
     form.bg-gray-50.shadow-xl.rounded-lg.p-4.w-full(class="md:p-8")
       label.block.mb-4
         span.text-gray-700 Estación de origen
-        select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedOrigin', class='focus:border-gray-500 focus:bg-white focus:ring-0')
+        select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedOrigin', class='focus:border-gray-500 focus:bg-white focus:ring-0', name="origin")
           option(value="", disabled) Selecciona una estación de origen
           option(:value="s.getId()" v-for="s in stations") {{s.getName()}}
 
       label.block.mb-4
         span.text-gray-700 Estación de destino
-        select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0')
+        select.block.w-full.mt-1.border.border-gray-600.rounded-md(v-model='selectedDestiny', class='focus:border-gray-500 focus:bg-white focus:ring-0', name="destiny")
           option(value="", disabled) Selecciona una estación de destino
           option(:value="s.getId()" v-for="s in stations") {{s.getName()}}
 
