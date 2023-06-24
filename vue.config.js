@@ -3,10 +3,7 @@ module.exports = {
     themeColor: '#2563eb',
     msTileColor: '#2563eb',
     iconPaths: {
-      faviconSVG: null,
-      favicon16: null,
-      favicon32: null,
-      msTileImage: null
+      faviconSVG: null
     },
     manifestOptions: {
       background_color: "#2563eb"
