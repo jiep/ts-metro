@@ -6,7 +6,7 @@ module.exports = {
       faviconSVG: null
     },
     manifestOptions: {
-      background_color: "#2563eb"
+      background_color: '#2563eb'
     }
     // workboxPluginMode: "GenerateSW",
     // workboxOptions: {
