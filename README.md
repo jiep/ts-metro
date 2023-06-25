@@ -4,7 +4,7 @@
 
 <p align="center">
   <img src="./docs/imgs/logo.png" alt="Logo">
-  <p>Web app that minimizes distance between Metro de Madrid stations</p>
+  <p align="center">Web app that minimizes distance between Metro de Madrid stations</p>
 </p>
 
 ## Demo
