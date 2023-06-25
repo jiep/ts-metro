@@ -96,20 +96,20 @@ export default defineComponent({
   },
   methods: {
     onClick () {
-      this.isLoading = true
       if (this.selectedOrigin === this.selectedDestiny) {
         this.sameStations = true
         this.clicked = false
       } else {
-        this.sameStations = false
+        this.sameStations = true
         this.clicked = true
+        this.isLoading = true
         const stationOrigin: Station = this.metro.getStationById(this.selectedOrigin)
         const stationDestiny: Station = this.metro.getStationById(this.selectedDestiny)
         const [path, distance] = this.metro.getShortestPath(stationOrigin, stationDestiny)
         this.distance = distance
         this.shortestPath = path
+        this.isLoading = false
       }
-      this.isLoading = false
     }
   }
 })
