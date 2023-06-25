@@ -2,7 +2,10 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7add0aa1-500e-4feb-8e9e-2b93146cacb6/deploy-status)](https://app.netlify.com/sites/ts-metro/deploys)
 
-> Web app that minimizes distance between Metro de Madrid stations.
+<p align="center">
+  <img src="./docs/imgs/logo.png" alt="Logo">
+  <p>Web app that minimizes distance between Metro de Madrid stations</p>
+</p>
 
 ## Demo
 
