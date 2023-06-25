@@ -100,7 +100,7 @@ export default defineComponent({
         this.sameStations = true
         this.clicked = false
       } else {
-        this.sameStations = true
+        this.sameStations = false
         this.clicked = true
         this.isLoading = true
         const stationOrigin: Station = this.metro.getStationById(this.selectedOrigin)
