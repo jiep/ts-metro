@@ -17,8 +17,7 @@
       .flex.place-items-center
         button.flex.justify-center.items-center.place-items-center.border.border-blue-500.bg-blue-500.rounded-md.px-4.py-2.transition.duration-500.ease.select.w-full(@click='onClick', :disabled="selectedOrigin === '' || selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-blue-500')
           p.text-white.mr-2 Buscar ruta más corta
-          svg.fill-white.w-4.animate-spin(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512', v-if="isLoading")
-            path(d='M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z')
+          LoadingIcon.fill-white.w-4.animate-spin(v-if="isLoading")
 
   section.flex.flex-1.m-4
     .bg-gray-50.shadow-xl.rounded-lg.p-4.w-full.mb-4(class="md:h-full md:p-8")
@@ -45,6 +44,7 @@ import StationList from '@/components/StationList.vue'
 import StatsItem from '@/components/StatsItem.vue'
 import AlertItem from '@/components/AlertItem.vue'
 import WarningItem from '@/components/WarningItem.vue'
+import LoadingIcon from '@/components/LoadingIcon.vue'
 
 export default defineComponent({
   name: 'MetroMadrid',
@@ -52,7 +52,8 @@ export default defineComponent({
     StatsItem,
     AlertItem,
     WarningItem,
-    StationList
+    StationList,
+    LoadingIcon
   },
   data () {
     return {
