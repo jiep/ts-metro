@@ -3159,6 +3159,16 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+cosmiconfig@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-8.2.0.tgz#f7d17c56a590856cd1e7cee98734dca272b0d8fd"
+  integrity sha512-3rTMnFJA1tCOPwRxtgF4wd7Ab2qvDbL8jX+3smjIbS4HlZBagTlpERbdN7iAbWlrfxE3M8c27kTwTawQ7st+OQ==
+  dependencies:
+    import-fresh "^3.2.1"
+    js-yaml "^4.1.0"
+    parse-json "^5.0.0"
+    path-type "^4.0.0"
+
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -6342,13 +6352,13 @@ postcss-load-config@^4.0.1:
     lilconfig "^2.0.5"
     yaml "^2.1.1"
 
-postcss-loader@7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-7.0.2.tgz#b53ff44a26fba3688eee92a048c7f2d4802e23bb"
-  integrity sha512-fUJzV/QH7NXUAqV8dWJ9Lg4aTkDCezpTS5HgJ2DvqznexTbSTxgi/dTECvTZ15BwKTtk8G/bqI/QTu2HPd3ZCg==
+postcss-loader@7.3.3:
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-7.3.3.tgz#6da03e71a918ef49df1bb4be4c80401df8e249dd"
+  integrity sha512-YgO/yhtevGO/vJePCQmTxiaEwER94LABZN0ZMT4A0vsak9TpO+RvKRs7EmJ8peIlB9xfXCsS7M8LjqncsUZ5HA==
   dependencies:
-    cosmiconfig "^7.0.0"
-    klona "^2.0.5"
+    cosmiconfig "^8.2.0"
+    jiti "^1.18.2"
     semver "^7.3.8"
 
 postcss-loader@^6.1.1:
