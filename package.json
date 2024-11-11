@@ -40,7 +40,7 @@
     "eslint-plugin-promise": "6.6.0",
     "eslint-plugin-standard": "5.0.0",
     "eslint-plugin-vue": "9.30.0",
-    "postcss": "8.4.47",
+    "postcss": "8.4.49",
     "postcss-import": "15.1.0",
     "postcss-loader": "8.1.1",
     "tailwindcss": "3.4.14",
@@ -48,6 +48,6 @@
     "vue-cli-plugin-pug": "2.0.0"
   },
   "peerDependencies": {
-    "postcss": "8.4.47"
+    "postcss": "8.4.49"
   }
 }
