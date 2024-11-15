@@ -11,7 +11,7 @@
     "core-js": "3.39.0",
     "nth-check": "2.1.1",
     "register-service-worker": "1.7.2",
-    "vue": "3.5.12",
+    "vue": "3.5.13",
     "vue-router": "4.4.5"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "@vue/cli-plugin-typescript": "5.0.8",
     "@vue/cli-plugin-unit-mocha": "5.0.8",
     "@vue/cli-service": "5.0.8",
-    "@vue/compiler-sfc": "3.5.12",
+    "@vue/compiler-sfc": "3.5.13",
     "@vue/eslint-config-standard": "8.0.1",
     "@vue/eslint-config-typescript": "12.0.0",
     "@vue/test-utils": "2.4.6",
