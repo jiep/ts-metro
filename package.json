@@ -12,7 +12,7 @@
     "nth-check": "2.1.1",
     "register-service-worker": "1.7.2",
     "vue": "3.5.13",
-    "vue-router": "4.4.5"
+    "vue-router": "4.5.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "0.5.9",
