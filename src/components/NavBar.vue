@@ -17,7 +17,7 @@ import LogoIcon from '@/components/LogoIcon.vue'
 export default defineComponent({
   name: 'NavBar',
   components: {
-    LogoIcon
-  }
+    LogoIcon,
+  },
 })
 </script>

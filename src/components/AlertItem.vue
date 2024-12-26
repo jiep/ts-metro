@@ -15,11 +15,9 @@ import AlertIcon from '@/components/AlertIcon.vue'
 
 export default defineComponent({
   name: 'AlertItem',
-  props: [
-    'message'
-  ],
+  props: ['message'],
   components: {
-    AlertIcon
-  }
+    AlertIcon,
+  },
 })
 </script>

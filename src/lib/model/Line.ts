@@ -4,26 +4,26 @@ export default class Line {
   textColor: string
   borderColor: string
 
-  constructor (name: string, bgColor: string, textColor: string, borderColor: string) {
+  constructor(name: string, bgColor: string, textColor: string, borderColor: string) {
     this.name = name
     this.bgColor = bgColor
     this.textColor = textColor
     this.borderColor = borderColor
   }
 
-  getName (): string {
+  getName(): string {
     return this.name
   }
 
-  getBgColor (): string {
+  getBgColor(): string {
     return this.bgColor
   }
 
-  getTextColor (): string {
+  getTextColor(): string {
     return this.textColor
   }
 
-  getBorderColor (): string {
+  getBorderColor(): string {
     return this.borderColor
   }
 }

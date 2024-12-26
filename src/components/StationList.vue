@@ -11,11 +11,8 @@ import StationItem from '@/components/StationItem.vue'
 export default defineComponent({
   name: 'StationList',
   components: {
-    StationItem
+    StationItem,
   },
-  props: [
-    'stations',
-    'lines'
-  ]
+  props: ['stations', 'lines'],
 })
 </script>

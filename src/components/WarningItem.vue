@@ -15,11 +15,9 @@ import WarningIcon from '@/components/WarningIcon.vue'
 
 export default defineComponent({
   name: 'WarningItem',
-  props: [
-    'message'
-  ],
+  props: ['message'],
   components: {
-    WarningIcon
-  }
+    WarningIcon,
+  },
 })
 </script>

@@ -1,14 +1,18 @@
-module.exports = {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+/** @type {import('tailwindcss').Config} */
+
+import forms from '@tailwindcss/forms'
+
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       borderWidth: ['first']
-    }
-  },
-  variants: {
-    extend: {}
+    },
   },
   plugins: [
-    require('@tailwindcss/forms')
-  ]
+    forms
+  ],
 }

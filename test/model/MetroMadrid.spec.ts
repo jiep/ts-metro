@@ -1,10 +1,11 @@
 import Station from '@/lib/model/Station'
 import MetroMadrid from '@/lib/model/MetroMadrid'
 
-import { expect } from 'chai'
-import data from '../../../public/data/stations.json'
-import distances from '../../../public/data/distances.json'
-import linesData from '../../../public/data/lines.json'
+import { describe, it, expect, beforeAll } from 'vitest'
+
+import data from '../../public/data/stations.json'
+import distances from '../../public/data/distances.json'
+import linesData from '../../public/data/lines.json'
 import Line from '@/lib/model/Line'
 
 describe('Metro Madrid', () => {
@@ -37,11 +38,10 @@ describe('Metro Madrid', () => {
   describe('Shortest path', () => {
     /* eslint-disable @typescript-eslint/no-explicit-any */
     let stationsAndDistance: Array<any>
-    before((done) => {
+    beforeAll(() => {
       const station1: Station = metro.getStationById(1)
       const station2: Station = metro.getStationById(2)
       stationsAndDistance = metro.getShortestPath(station1, station2)
-      done()
     })
 
     it('should return the shortest path between two given stations', () => {

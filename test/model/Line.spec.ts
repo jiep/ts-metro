@@ -1,6 +1,6 @@
 import Line from '@/lib/model/Line'
 
-import { expect } from 'chai'
+import { describe, it, expect, beforeEach } from 'vitest'
 
 describe('Line', () => {
   let line: Line

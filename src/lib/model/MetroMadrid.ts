@@ -8,7 +8,7 @@ export default class MetroMadrid extends Metro {
   public distancesGraph: WeightedGraph
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  constructor (distances: Array<any>, stations: Array<Station>, lines: Array<Line>) {
+  constructor(distances: Array<any>, stations: Array<Station>, lines: Array<Line>) {
     super(stations, lines)
     const n = stations.length
     this.distancesGraph = new WeightedGraph(GraphClass.UNDIRECTED, n)
@@ -17,7 +17,7 @@ export default class MetroMadrid extends Metro {
     })
   }
 
-  public getShortestPath (source: Station, destination: Station): Array<any> {
+  public getShortestPath(source: Station, destination: Station): Array<any> {
     let stationsAndDistance: Array<any> = []
     if (source.getId() !== destination.getId()) {
       stationsAndDistance = this.distancesGraph.shortestPath(source.getId(), destination.getId())

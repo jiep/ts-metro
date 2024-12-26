@@ -4,7 +4,7 @@ import GraphClass from './GraphClass'
 export default class WeightedGraph extends Graph {
   private weightedMatrix: number[][] = [[]]
 
-  constructor (c: GraphClass, verticesNumber: number) {
+  constructor(c: GraphClass, verticesNumber: number) {
     super(c, verticesNumber)
 
     for (let i = 0; i < verticesNumber; i++) {
@@ -19,27 +19,26 @@ export default class WeightedGraph extends Graph {
     }
   }
 
-  public connect (i: number, j: number, weight?: number): void {
+  public connect(i: number, j: number, weight?: number): void {
     super.connect(i, j)
-    /* eslint-disable @typescript-eslint/no-non-null-assertion */
+
     this.weightedMatrix[i][j] = weight!
     if (super.getClass === GraphClass.UNDIRECTED) {
-      /* eslint-disable @typescript-eslint/no-non-null-assertion */
       this.weightedMatrix[j][i] = weight!
     }
   }
 
-  public getWeight (i: number, j: number): number {
+  public getWeight(i: number, j: number): number {
     return this.areConnected(i, j) ? this.weightedMatrix[i][j] : Number.POSITIVE_INFINITY
   }
 
-  get getWeightedMatrix (): number[][] {
+  get getWeightedMatrix(): number[][] {
     return this.weightedMatrix
   }
 
-  private floyd (): Array<number[][]> {
+  private floyd(): Array<number[][]> {
     const n: number = this.vertices()
-    const ans: number[][] = this.getWeightedMatrix.map(a => ([...a]))
+    const ans: number[][] = this.getWeightedMatrix.map((a) => [...a])
     const p: number[][] = WeightedGraph.calculePath(this.getWeightedMatrix)
 
     for (let k = 0; k < n; k++) {
@@ -58,7 +57,7 @@ export default class WeightedGraph extends Graph {
     return out
   }
 
-  private static rPath (i: number, j: number, path: number[][]): Array<number> {
+  private static rPath(i: number, j: number, path: number[][]): Array<number> {
     const r: Array<number> = []
 
     r.unshift(j)
@@ -73,7 +72,7 @@ export default class WeightedGraph extends Graph {
     return r
   }
 
-  private static calculePath (ady: number[][]): number[][] {
+  private static calculePath(ady: number[][]): number[][] {
     const path: number[][] = [[]]
 
     for (let i = 0; i < ady.length; i++) {
@@ -95,7 +94,7 @@ export default class WeightedGraph extends Graph {
   }
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  public shortestPath (i: number, j: number): Array<any> {
+  public shortestPath(i: number, j: number): Array<any> {
     const floyd = this.floyd()
     const [distance, path] = floyd
     const sPath = WeightedGraph.rPath(i, j, path)

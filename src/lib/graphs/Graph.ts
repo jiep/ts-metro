@@ -5,7 +5,7 @@ export default class Graph {
   private verticesNumber: number
   private adjacencyMatrix: number[][] = [[]]
 
-  constructor (c: GraphClass, verticesNumber: number) {
+  constructor(c: GraphClass, verticesNumber: number) {
     this.class = c
     this.verticesNumber = verticesNumber
 
@@ -17,33 +17,33 @@ export default class Graph {
     }
   }
 
-  public connect (i: number, j: number): void {
+  public connect(i: number, j: number): void {
     this.adjacencyMatrix[i][j] = 1
     if (this.class === GraphClass.UNDIRECTED) {
       this.adjacencyMatrix[j][i] = 1
     }
   }
 
-  public disconnect (i: number, j: number): void {
+  public disconnect(i: number, j: number): void {
     this.adjacencyMatrix[i][j] = 0
     if (this.class === GraphClass.UNDIRECTED) {
       this.adjacencyMatrix[j][i] = 0
     }
   }
 
-  public areConnected (i: number, j: number): boolean {
+  public areConnected(i: number, j: number): boolean {
     return this.adjacencyMatrix[i][j] === 1
   }
 
-  public vertices (): number {
+  public vertices(): number {
     return this.verticesNumber
   }
 
-  get getAdjMatrix (): number[][] {
+  get getAdjMatrix(): number[][] {
     return this.adjacencyMatrix
   }
 
-  get getClass (): GraphClass {
+  get getClass(): GraphClass {
     return this.class
   }
 }

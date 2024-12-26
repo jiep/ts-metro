@@ -53,9 +53,9 @@ export default defineComponent({
     AlertItem,
     WarningItem,
     StationList,
-    LoadingIcon
+    LoadingIcon,
   },
-  data () {
+  data() {
     return {
       /* eslint-disable @typescript-eslint/no-explicit-any */
       metro: null as any,
@@ -67,14 +67,14 @@ export default defineComponent({
       distance: 0,
       clicked: false,
       sameStations: false,
-      isLoading: false
+      isLoading: false,
     }
   },
-  async mounted () {
+  async mounted() {
     const responses = await Promise.all([
       fetch('/data/stations.json'),
       fetch('/data/distances.json'),
-      fetch('/data/lines.json')
+      fetch('/data/lines.json'),
     ])
 
     const dataStations = await responses[0].json()
@@ -82,21 +82,20 @@ export default defineComponent({
     const distances = await responses[1].json()
     const dataLines = await responses[2].json()
     const lines = dataLines.map((x: any) => new Line(x.name, x.bgColor, x.textColor, x.borderColor))
-    lines.forEach(
-      (x: Line) => this.linesConfig.set(
-        x.getName(),
-        {
-          bgColor: x.getBgColor(),
-          textColor: x.getTextColor(),
-          borderColor: x.getBorderColor()
-        }
-      )
+    lines.forEach((x: Line) =>
+      this.linesConfig.set(x.getName(), {
+        bgColor: x.getBgColor(),
+        textColor: x.getTextColor(),
+        borderColor: x.getBorderColor(),
+      }),
     )
     this.metro = new MetroMadrid(distances, stations, lines)
-    this.stations = stations.sort((a: Station, b: Station) => a.getName().localeCompare(b.getName()))
+    this.stations = stations.sort((a: Station, b: Station) =>
+      a.getName().localeCompare(b.getName()),
+    )
   },
   methods: {
-    onClick () {
+    onClick() {
       if (this.selectedOrigin === this.selectedDestiny) {
         this.sameStations = true
         this.clicked = false
@@ -111,10 +110,9 @@ export default defineComponent({
         this.shortestPath = path
         this.isLoading = false
       }
-    }
-  }
+    },
+  },
 })
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
