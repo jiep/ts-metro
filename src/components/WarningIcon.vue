@@ -7,6 +7,6 @@ svg(aria-hidden='true' focusable='false' data-prefix='fas' data-icon='clipboard-
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'WarningIcon'
+  name: 'WarningIcon',
 })
 </script>

@@ -1,7 +1,7 @@
 import WeightedGraph from '@/lib/graphs/WeightedGraph'
 import GraphClass from '@/lib/graphs/GraphClass'
 
-import { expect } from 'chai'
+import { describe, it, expect, beforeEach } from 'vitest'
 
 describe('WeightedGraph', () => {
   let graph: WeightedGraph
@@ -20,7 +20,7 @@ describe('WeightedGraph', () => {
   })
 
   describe('Connect', () => {
-    before(() => {
+    beforeEach(() => {
       directedGraph = new WeightedGraph(GraphClass.DIRECTED, 3)
     })
 
@@ -29,7 +29,7 @@ describe('WeightedGraph', () => {
       expect(directedGraph.getWeightedMatrix[1][2]).to.equal(5)
     })
 
-    before(() => {
+    beforeEach(() => {
       graph = new WeightedGraph(GraphClass.UNDIRECTED, 3)
     })
 

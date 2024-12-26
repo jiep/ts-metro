@@ -1,6 +1,6 @@
 import Station from '@/lib/model/Station'
 
-import { expect } from 'chai'
+import { describe, it, expect, beforeEach, beforeAll } from 'vitest'
 
 describe('Station', () => {
   let station: Station
@@ -57,7 +57,7 @@ describe('Station', () => {
   })
 
   describe('To String', () => {
-    before(() => {
+    beforeAll(() => {
       station = new Station(1, 'Atocha', ['1', '10'])
     })
 

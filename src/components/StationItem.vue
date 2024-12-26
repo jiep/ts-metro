@@ -16,13 +16,9 @@ import SeparatorIcon from '@/components/SeparatorIcon.vue'
 
 export default defineComponent({
   name: 'StationItem',
-  props: [
-    'station',
-    'lines',
-    'isLast'
-  ],
+  props: ['station', 'lines', 'isLast'],
   components: {
-    SeparatorIcon
-  }
+    SeparatorIcon,
+  },
 })
 </script>

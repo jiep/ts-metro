@@ -19,6 +19,6 @@ svg(version='1.1' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.or
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'LogoIcon'
+  name: 'LogoIcon',
 })
 </script>

@@ -1,7 +1,7 @@
 import Graph from '@/lib/graphs/Graph'
 import GraphClass from '@/lib/graphs/GraphClass'
 
-import { expect } from 'chai'
+import { describe, it, expect, beforeEach } from 'vitest'
 
 describe('Graph', () => {
   let graph: Graph
@@ -22,7 +22,7 @@ describe('Graph', () => {
   })
 
   describe('Connect', () => {
-    before(() => {
+    beforeEach(() => {
       directedGraph = new Graph(GraphClass.DIRECTED, 3)
     })
 
@@ -31,7 +31,7 @@ describe('Graph', () => {
       expect(directedGraph.getAdjMatrix).to.eql([[1, 1, 1], [1, 1, 1], [1, 1, 1]])
     })
 
-    before(() => {
+    beforeEach(() => {
       graph = new Graph(GraphClass.UNDIRECTED, 3)
     })
 
@@ -42,7 +42,7 @@ describe('Graph', () => {
   })
 
   describe('Disconnect', () => {
-    before(() => {
+    beforeEach(() => {
       directedGraph = new Graph(GraphClass.DIRECTED, 3)
     })
 
@@ -51,7 +51,7 @@ describe('Graph', () => {
       expect(directedGraph.getAdjMatrix).to.eql([[1, 1, 1], [1, 1, 0], [1, 1, 1]])
     })
 
-    before(() => {
+    beforeEach(() => {
       graph = new Graph(GraphClass.UNDIRECTED, 3)
     })
 

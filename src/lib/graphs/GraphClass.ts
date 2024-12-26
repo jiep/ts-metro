@@ -1,5 +1,6 @@
 enum GraphClass {
-    DIRECTED, UNDIRECTED
+  DIRECTED,
+  UNDIRECTED,
 }
 
 export default GraphClass

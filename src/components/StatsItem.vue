@@ -29,13 +29,9 @@ import SeparatorIcon from '@/components/SeparatorIcon.vue'
 
 export default defineComponent({
   name: 'StatsItem',
-  props: [
-    'from',
-    'to',
-    'distance'
-  ],
+  props: ['from', 'to', 'distance'],
   components: {
-    SeparatorIcon
-  }
+    SeparatorIcon,
+  },
 })
 </script>

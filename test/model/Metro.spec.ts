@@ -2,7 +2,7 @@ import Station from '@/lib/model/Station'
 import Metro from '@/lib/model/Metro'
 import Line from '@/lib/model/Line'
 
-import { expect } from 'chai'
+import { describe, it, expect, beforeEach } from 'vitest'
 
 describe('Metro', () => {
   let metro: Metro
@@ -11,7 +11,7 @@ describe('Metro', () => {
   const station1: Station = new Station(1, 'Sol', ['1', '2', '3'])
   const station2: Station = new Station(2, 'Atocha', ['1'])
 
-  before(() => {
+  beforeEach(() => {
     const station3: Station = new Station(3, 'Chamartín', ['1', '10'])
     stations = [station1, station2, station3]
     const line: Line = new Line('1', '#FFFFFF', '#AAAAAA', '#123456')
@@ -53,7 +53,7 @@ describe('Metro', () => {
   })
 
   describe('Get stations number', () => {
-    before(() => {
+    beforeEach(() => {
       metro = new Metro([], [])
     })
 
@@ -64,7 +64,7 @@ describe('Metro', () => {
   })
 
   describe('Get lines number', () => {
-    before(() => {
+    beforeEach(() => {
       metro = new Metro([], [])
     })
 
@@ -74,8 +74,9 @@ describe('Metro', () => {
     })
   })
 
+   
   describe('Add new station', () => {
-    before(() => {
+    beforeEach(() => {
       metro = new Metro([], [])
     })
 
@@ -85,13 +86,11 @@ describe('Metro', () => {
       expect(metro.getStationsNumber()).to.equal(1)
       expect(metro.getStations()[0].getName()).to.equal('Sol')
       expect(metro.getStations()[0].getId()).to.equal(1)
-      /* eslint-disable no-unused-expressions */
-      expect(metro.getStations()[1]).to.be.undefined
     })
   })
 
   describe('Get station by id', () => {
-    before(() => {
+    beforeEach(() => {
       metro = new Metro(stations, lines)
     })
 

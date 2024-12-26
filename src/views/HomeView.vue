@@ -8,7 +8,7 @@ import MetroMadrid from '@/components/MetroMadrid.vue'
 export default {
   name: 'HomeView',
   components: {
-    MetroMadrid
-  }
+    MetroMadrid,
+  },
 }
 </script>

@@ -7,6 +7,6 @@ svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512', )
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'LoadingIcon'
+  name: 'LoadingIcon',
 })
 </script>
