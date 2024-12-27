@@ -12,6 +12,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     VitePWA({
+      registerType: 'autoUpdate',
       devOptions: {
         enabled: true
       },
