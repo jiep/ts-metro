@@ -40,9 +40,6 @@ export default defineConfig({
           },
         ],
       },
-      includeAssets: [
-        "**/*",
-      ],
       manifest: {
         name: 'ts-metro',
         short_name: 'ts-metro',
