@@ -12,7 +12,6 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     VitePWA({
-      registerType: 'autoUpdate',
       workbox: {
         globPatterns: ["**/*"],
       },
