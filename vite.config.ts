@@ -14,39 +14,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        runtimeCaching: [
-          {
-            urlPattern: ({ request }) => request.destination === 'document',
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'html-cache',
-            },
-          },
-          {
-            urlPattern: ({ request }) => request.destination === 'script',
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'js-cache',
-            },
-          },
-          {
-            urlPattern: ({ request }) => request.destination === 'style',
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'css-cache',
-            },
-          },
-          {
-            urlPattern: ({ request }) => request.destination === 'image',
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'image-cache',
-            },
-          },
-        ],
-      },
-      devOptions: {
-        enabled: true
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        navigateFallback: '/index.html',
       },
       includeAssets: [
         "**/*",
@@ -68,6 +37,9 @@ export default defineConfig({
             type: 'image/png'
           }
         ]
+      },
+      devOptions: {
+        enabled: true
       }
     })
   ],
