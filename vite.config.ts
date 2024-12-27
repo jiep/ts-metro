@@ -13,10 +13,15 @@ export default defineConfig({
     vueDevTools(),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ["**/*"],
+      },
       devOptions: {
         enabled: true
       },
-      includeAssets: ['img/icons/favicon.ico', 'img/icons/apple-touch-icon.png'],
+      includeAssets: [
+        "**/*",
+      ],
       manifest: {
         name: 'ts-metro',
         short_name: 'ts-metro',
