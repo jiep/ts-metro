@@ -1,5 +1,5 @@
 <template lang="pug">
-.opacity-90.h-full(class="md:flex md:overflow-y-auto")
+.opacity-90(class="md:flex md:overflow-y-auto")
   section.flex.m-4.justify-center.items-center
     form.bg-gray-50.shadow-xl.rounded-lg.p-4.w-full(class="md:p-8")
       label.block.mb-4
@@ -20,7 +20,7 @@
           LoadingIcon.fill-white.w-4.animate-spin(v-if="isLoading")
 
   section.flex.flex-1.m-4
-    .bg-gray-50.shadow-xl.rounded-lg.p-4.w-full.mb-4(class="md:h-full md:p-8")
+    .bg-gray-50.shadow-xl.rounded-lg.p-4.w-full(class="md:h-full md:p-8")
       template(v-if="clicked")
         .flex.flex-col(class="md:h-full md:overflow-y-auto")
           StatsItem.bg-gray-50(:from="metro.getStationById(selectedOrigin).getName()",
