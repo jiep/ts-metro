@@ -4,6 +4,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { VitePWA } from 'vite-plugin-pwa'
+import { version } from './package.json'
+
 
 
 // https://vite.dev/config/
@@ -68,7 +70,8 @@ export default defineConfig({
             type: 'image/png',
             purpose: ['any', 'maskable'],
           }
-        ]
+        ],
+        ...{ version },
       },
       devOptions: {
         enabled: true
