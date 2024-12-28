@@ -9,9 +9,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'NavBar',
   setup() {
-    const version = __APP_VERSION__;
-    return { version };
+    const version = __APP_VERSION__
+    return { version }
   },
 })
 </script>
-

@@ -13,8 +13,7 @@ export default {
   name: 'HomeView',
   components: {
     NavBar,
-    FooterVersion
+    FooterVersion,
   },
-
 }
 </script>
