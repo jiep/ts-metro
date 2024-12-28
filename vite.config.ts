@@ -14,8 +14,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-        navigateFallback: '/index.html',
+        globPatterns: ['**/*'],
+        navigateFallback: 'index.html',
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === 'document',
@@ -36,6 +36,13 @@ export default defineConfig({
             handler: 'CacheFirst',
             options: {
               cacheName: 'image-cache',
+            },
+          },
+          {
+            urlPattern: ({ url }) => url.pathname.endsWith('.json'),
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'data-cache',
             },
           },
         ],
