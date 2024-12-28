@@ -1,6 +1,6 @@
 <template lang="pug">
-footer.py-2.text-center.text-gray-900
-    p.text-xs v{{version}}
+footer.text-center.text-white
+  p.text-xs v{{version}}
 </template>
 
 <script lang="ts">
