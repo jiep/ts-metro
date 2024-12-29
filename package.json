@@ -22,7 +22,7 @@
     "@types/jsdom": "21.1.7",
     "@types/node": "22.10.2",
     "@vitejs/plugin-vue": "5.2.1",
-    "@vitest/eslint-plugin": "1.1.20",
+    "@vitest/eslint-plugin": "1.1.21",
     "@vue/eslint-config-prettier": "10.1.0",
     "@vue/eslint-config-typescript": "14.1.3",
     "@vue/language-plugin-pug": "2.2.0",
