@@ -30,7 +30,7 @@
     "@vue/tsconfig": "0.7.0",
     "autoprefixer": "10.4.20",
     "cssnano": "7.0.6",
-    "eslint": "9.17.0",
+    "eslint": "9.18.0",
     "eslint-plugin-vue": "9.32.0",
     "jsdom": "25.0.1",
     "npm-run-all2": "7.0.2",
