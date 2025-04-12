@@ -7,7 +7,7 @@ footer.text-center.text-white
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'NavBar',
+  name: 'FooterComp',
   setup() {
     const version = __APP_VERSION__
     return { version }
