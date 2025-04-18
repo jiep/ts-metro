@@ -15,7 +15,7 @@
           option(:value="s.getId()" v-for="s in stations") {{s.getName()}}
 
       .flex.place-items-center
-        button.flex.justify-center.items-center.place-items-center.border.border-blue-500.bg-blue-500.rounded-md.px-4.py-2.transition.duration-500.ease.select.w-full(@click='onClick', :disabled="selectedOrigin === '' || selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:outline-none focus:shadow-outline disabled:cursor-not-allowed disabled:bg-blue-500')
+        button.flex.justify-center.items-center.place-items-center.border.border-blue-500.bg-blue-500.rounded-md.px-4.py-2.transition.duration-500.ease.select.w-full(@click='onClick', :disabled="selectedOrigin === '' || selectedDestiny === ''", type='button', class='hover:bg-blue-600 focus:shadow-outline enabled:hover:cursor-progress disabled:bg-blue-500')
           p.text-white.mr-2 Buscar ruta más corta
           LoadingIcon.fill-white.w-4.animate-spin(v-if="isLoading")
 
