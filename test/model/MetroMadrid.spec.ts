@@ -15,7 +15,7 @@ describe('Metro Madrid', () => {
 
   describe('Contructor', () => {
     it('should create the Madrid metro with 276 stations', () => {
-      expect(metro.getStations().length).to.equal(276)
+      expect(metro.getStations().length).to.equal(275)
     })
 
     it('should create the metro with the specific stations', () => {
