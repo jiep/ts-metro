@@ -104,8 +104,8 @@ export default defineComponent({
         this.clicked = true
         this.isLoading = true
         const stationOrigin: Station = this.metro.getStationById(this.selectedOrigin)
-        const stationDestiny: Station = this.metro.getStationById(this.selectedDestiny)
-        const { path, distance } = this.metro.getShortestPath(stationOrigin, stationDestiny)
+        const stationDestination: Station = this.metro.getStationById(this.selectedDestiny)
+        const { path, distance } = this.metro.getShortestPath(stationOrigin, stationDestination)
         this.distance = distance
         this.shortestPath = path
         this.isLoading = false
