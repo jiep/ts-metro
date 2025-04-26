@@ -35,15 +35,39 @@ export default defineComponent({
   },
   props: ['station', 'lines', 'isLast', 'transfer', 'currentLine'],
   computed: {
+
     borderStyle() {
       if (this.transfer) {
-        const fromColor = this.lines.get(this.transfer.fromLine).bgColor;
-        const toColor = this.lines.get(this.transfer.toLine).bgColor;
+        let fromColor, toColor;
+
+        const fromLine = this.lines.get(this.transfer.fromLine);
+
+        const toLine = this.lines.get(this.transfer.toLine);
+        if (this.transfer.fromLine.startsWith("ML")) {
+          fromColor = fromLine.borderColor;
+        } else {
+          fromColor = fromLine.bgColor;
+        }
+
+        if (this.transfer.toLine.startsWith("ML")) {
+          toColor = toLine.borderColor;
+        } else {
+          toColor = toLine.bgColor;
+        }
+
         return {
           borderImage: `linear-gradient(to bottom, ${fromColor}, ${toColor}) 1`,
         };
       }
-      const currentColor = this.lines.get(this.currentLine).bgColor;
+
+      let currentColor;
+
+      if (this.currentLine.startsWith("ML")) {
+        currentColor = this.lines.get(this.currentLine).borderColor;
+      } else {
+        currentColor = this.lines.get(this.currentLine).bgColor;
+      }
+
       return {
         borderColor: currentColor,
       };
