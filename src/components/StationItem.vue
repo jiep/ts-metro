@@ -11,7 +11,7 @@
         |  a 
         span.ml-2.font-medium.text-xs.text-center.rounded.py-1.px-2(:style="[{'background-color': lines.get(transfer.toLine).bgColor}, {'color': lines.get(transfer.toLine).textColor}, {'border': `1px solid ${lines.get(transfer.toLine).borderColor}`}]") {{transfer.toLine}}
   .flex.flex-row.items-center.justify-center
-    SeparatorIcon.rotate-90.w-4.fill-current.text-blue-400.m-2(class="last:display-none", v-if="!isLast") 
+    SeparatorIcon.rotate-90.w-4.m-2(:style="{ fill: lines.get(currentLine).bgColor }", class="last:display-none", v-if="!isLast") 
 </template>
 
 <script lang="ts">
