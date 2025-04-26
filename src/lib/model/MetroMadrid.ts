@@ -81,7 +81,11 @@ export default class MetroMadrid extends Metro {
           transfer: transferInfo,
         })
       } else {
-        path.push({ station: currentStation, segment: null, transfer: null })
+        path.push({
+          station: currentStation,
+          segment: { line: currentLine!, from: currentStation, to: currentStation },
+          transfer: null,
+        })
       }
     }
 
