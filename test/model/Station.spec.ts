@@ -15,10 +15,12 @@ describe('Station', () => {
       expect(id).to.equal(2)
       expect(lines).to.have.same.deep.members(['1'])
     })
+
+
   })
 
   describe('Getters and setters', () => {
-    beforeEach(function () {
+    beforeEach(() => {
       station = new Station(1, 'Sol', ['1', '2'])
     })
 
@@ -54,6 +56,8 @@ describe('Station', () => {
       const lines = station.getLines()
       expect(lines).to.have.same.deep.members(['4', '5'])
     })
+
+
   })
 
   describe('To String', () => {
@@ -63,6 +67,29 @@ describe('Station', () => {
 
     it('should return a string with the information of the object', () => {
       expect(station.toString()).to.equal('id: 1, name: Atocha, connectedTo: 1,10')
+    })
+
+    it('should update the string when properties change', () => {
+      station.setId(2)
+      station.setName('Chamartín')
+      station.setLines(['2', '3'])
+      expect(station.toString()).to.equal('id: 2, name: Chamartín, connectedTo: 2,3')
+    })
+  })
+
+  describe('Edge cases', () => {
+    it('should handle a station with a single line', () => {
+      station = new Station(3, 'Nuevos Ministerios', ['10'])
+      const lines = station.getLines()
+      expect(lines).to.have.length(1)
+      expect(lines).to.include('10')
+    })
+
+    it('should handle a station with multiple lines', () => {
+      station = new Station(4, 'Príncipe Pío', ['6', '10', 'R'])
+      const lines = station.getLines()
+      expect(lines).to.have.length(3)
+      expect(lines).to.have.same.deep.members(['6', '10', 'R'])
     })
   })
 })

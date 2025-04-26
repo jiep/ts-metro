@@ -35,42 +35,41 @@ export default defineComponent({
   },
   props: ['station', 'lines', 'isLast', 'transfer', 'currentLine'],
   computed: {
-
     borderStyle() {
       if (this.transfer) {
-        let fromColor, toColor;
+        let fromColor, toColor
 
-        const fromLine = this.lines.get(this.transfer.fromLine);
+        const fromLine = this.lines.get(this.transfer.fromLine)
 
-        const toLine = this.lines.get(this.transfer.toLine);
-        if (this.transfer.fromLine.startsWith("ML") || this.transfer.fromLine.startsWith("R")) {
-          fromColor = fromLine.borderColor;
+        const toLine = this.lines.get(this.transfer.toLine)
+        if (this.transfer.fromLine.startsWith('ML') || this.transfer.fromLine.startsWith('R')) {
+          fromColor = fromLine.borderColor
         } else {
-          fromColor = fromLine.bgColor;
+          fromColor = fromLine.bgColor
         }
 
-        if (this.transfer.toLine.startsWith("ML") || this.transfer.toLine.startsWith("R")) {
-          toColor = toLine.borderColor;
+        if (this.transfer.toLine.startsWith('ML') || this.transfer.toLine.startsWith('R')) {
+          toColor = toLine.borderColor
         } else {
-          toColor = toLine.bgColor;
+          toColor = toLine.bgColor
         }
 
         return {
           borderImage: `linear-gradient(to bottom, ${fromColor}, ${toColor}) 1`,
-        };
+        }
       }
 
-      let currentColor;
+      let currentColor
 
-      if (this.currentLine.startsWith("ML") || this.currentLine.startsWith("R")) {
-        currentColor = this.lines.get(this.currentLine).borderColor;
+      if (this.currentLine.startsWith('ML') || this.currentLine.startsWith('R')) {
+        currentColor = this.lines.get(this.currentLine).borderColor
       } else {
-        currentColor = this.lines.get(this.currentLine).bgColor;
+        currentColor = this.lines.get(this.currentLine).bgColor
       }
 
       return {
         borderColor: currentColor,
-      };
+      }
     },
   },
 })
