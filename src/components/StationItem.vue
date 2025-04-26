@@ -43,13 +43,13 @@ export default defineComponent({
         const fromLine = this.lines.get(this.transfer.fromLine);
 
         const toLine = this.lines.get(this.transfer.toLine);
-        if (this.transfer.fromLine.startsWith("ML")) {
+        if (this.transfer.fromLine.startsWith("ML") || this.transfer.fromLine.startsWith("R")) {
           fromColor = fromLine.borderColor;
         } else {
           fromColor = fromLine.bgColor;
         }
 
-        if (this.transfer.toLine.startsWith("ML")) {
+        if (this.transfer.toLine.startsWith("ML") || this.transfer.toLine.startsWith("R")) {
           toColor = toLine.borderColor;
         } else {
           toColor = toLine.bgColor;
@@ -62,7 +62,7 @@ export default defineComponent({
 
       let currentColor;
 
-      if (this.currentLine.startsWith("ML")) {
+      if (this.currentLine.startsWith("ML") || this.currentLine.startsWith("R")) {
         currentColor = this.lines.get(this.currentLine).borderColor;
       } else {
         currentColor = this.lines.get(this.currentLine).bgColor;
