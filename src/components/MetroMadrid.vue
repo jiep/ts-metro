@@ -111,7 +111,7 @@ export default defineComponent({
           station: step.station,
           segment: step.segment,
           transfer: step.transfer,
-        }))       
+        }))
         this.isLoading = false
       }
     },
