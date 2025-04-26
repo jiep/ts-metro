@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex.flex-col.items-center.w-full
-  .flex.px-2.py-2.border-l-4.border-r-4.border.shadow-xl.rounded-xl.justify-between.w-full(class="md:w-3/4", :style="[{'border-color': lines.get(currentLine).bgColor}]")
+  .flex.px-2.py-2.border-l-4.border-r-4.border.shadow-xl.justify-between.w-full(class="md:w-3/4", :style="[{'border-color': lines.get(currentLine).bgColor}]")
     .flex-row.flex.mr-4
       span.text-left.antialiased.text-gray-800 {{station.name}}
     .flex.items-center.flex.flex-nowrap.overflow-auto
