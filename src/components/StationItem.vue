@@ -11,19 +11,19 @@
         |  a
         span.ml-2.font-medium.text-xs.text-center.rounded.py-1.px-2(:style="[{'background-color': lines.get(transfer.toLine).bgColor}, {'color': lines.get(transfer.toLine).textColor}, {'border': `1px solid ${lines.get(transfer.toLine).borderColor}`}]") {{transfer.toLine}}
   .flex.flex-row.items-center.justify-center
-    SeparatorIcon.rotate-90.w-4.m-2(:style="{ fill: lines.get(currentLine).bgColor }", class="last:display-none", v-if="!isLast")
+    StationSeparator.w-4.h-4(:color="lines.get(currentLine).bgColor", class="last:display-none", v-if="!isLast")
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import SeparatorIcon from '@/components/SeparatorIcon.vue'
+import StationSeparator from '@/components/StationSeparator.vue'
 
 export default defineComponent({
   name: 'StationItem',
   props: ['station', 'lines', 'isLast', 'transfer', 'currentLine'],
   components: {
-    SeparatorIcon,
+    StationSeparator,
   },
 })
 </script>
