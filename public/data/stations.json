@@ -92,7 +92,7 @@
 	{"id": 90, "name": "El Capricho", "lines": ["5"]},
 	{"id": 91, "name": "El Carmen", "lines": ["5"]},
 	{"id": 92, "name": "El Carrascal", "lines": ["12"]},
-	{"id": 93, "name": "El Casar", "lines": ["12"]},
+	{"id": 93, "name": "El Casar", "lines": ["3", "12"]},
 	{"id": 94, "name": "Embajadores", "lines": ["3", "5"]},
 	{"id": 95, "name": "Empalme", "lines": ["5"]},
 	{"id": 96, "name": "Esperanza", "lines": ["4"]},
