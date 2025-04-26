@@ -27,13 +27,11 @@ export default class MetroMadrid extends Metro {
       transfer: { fromLine: string; toLine: string } | null
     }>
     distance: number
-    transfers: Array<{ at: Station; fromLine: string; toLine: string }>
   } {
     if (source.getId() === destination.getId()) {
       return {
         path: [{ station: source, segment: null, transfer: null }],
         distance: 0,
-        transfers: [],
       }
     }
 
@@ -46,7 +44,6 @@ export default class MetroMadrid extends Metro {
       segment: { line: string; from: Station; to: Station } | null
       transfer: { fromLine: string; toLine: string } | null
     }> = []
-    const transfers: Array<{ at: Station; fromLine: string; toLine: string }> = []
 
     let currentLine: string | null = null
 
@@ -66,11 +63,6 @@ export default class MetroMadrid extends Metro {
         const line = commonLines[0]
 
         if (currentLine && currentLine !== line) {
-          transfers.push({
-            at: currentStation,
-            fromLine: currentLine,
-            toLine: line,
-          })
           transferInfo = { fromLine: currentLine, toLine: line }
         }
 
@@ -89,7 +81,7 @@ export default class MetroMadrid extends Metro {
       }
     }
 
-    return { path, distance, transfers }
+    return { path, distance }
   }
 
   private findCommonLines(station1: Station, station2: Station): Array<string> {
