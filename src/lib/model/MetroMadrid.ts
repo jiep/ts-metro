@@ -21,16 +21,18 @@ export default class MetroMadrid extends Metro {
     source: Station,
     destination: Station,
   ): {
-    path: Array<Station>
+    path: Array<{
+      station: Station
+      segment: { line: string; from: Station; to: Station } | null
+      transfer: { fromLine: string; toLine: string } | null
+    }>
     distance: number
-    segments: Array<{ line: string; from: Station; to: Station }>
     transfers: Array<{ at: Station; fromLine: string; toLine: string }>
   } {
     if (source.getId() === destination.getId()) {
       return {
-        path: [source],
+        path: [{ station: source, segment: null, transfer: null }],
         distance: 0,
-        segments: [],
         transfers: [],
       }
     }
@@ -39,40 +41,51 @@ export default class MetroMadrid extends Metro {
       source.getId(),
       destination.getId(),
     )
-    const path: Array<Station> = stationIds.map((stationId: number) =>
-      this.getStationById(stationId),
-    )
-    const segments: Array<{ line: string; from: Station; to: Station }> = []
+    const path: Array<{
+      station: Station
+      segment: { line: string; from: Station; to: Station } | null
+      transfer: { fromLine: string; toLine: string } | null
+    }> = []
     const transfers: Array<{ at: Station; fromLine: string; toLine: string }> = []
 
     let currentLine: string | null = null
 
-    for (let i = 0; i < path.length - 1; i++) {
-      const currentStation = path[i]
-      const nextStation = path[i + 1]
+    for (let i = 0; i < stationIds.length; i++) {
+      const currentStation = this.getStationById(stationIds[i])
+      let transferInfo: { fromLine: string; toLine: string } | null = null
 
-      const commonLines = this.findCommonLines(currentStation, nextStation)
-      if (commonLines.length === 0) {
-        throw new Error(
-          `No line connects stations ${currentStation.getName()} and ${nextStation.getName()}`,
-        )
-      }
+      if (i < stationIds.length - 1) {
+        const nextStation = this.getStationById(stationIds[i + 1])
+        const commonLines = this.findCommonLines(currentStation, nextStation)
+        if (commonLines.length === 0) {
+          throw new Error(
+            `No line connects stations ${currentStation.getName()} and ${nextStation.getName()}`,
+          )
+        }
 
-      const line = commonLines[0]
+        const line = commonLines[0]
 
-      if (currentLine && currentLine !== line) {
-        transfers.push({
-          at: currentStation,
-          fromLine: currentLine,
-          toLine: line,
+        if (currentLine && currentLine !== line) {
+          transfers.push({
+            at: currentStation,
+            fromLine: currentLine,
+            toLine: line,
+          })
+          transferInfo = { fromLine: currentLine, toLine: line }
+        }
+
+        currentLine = line
+        path.push({
+          station: currentStation,
+          segment: { line, from: currentStation, to: nextStation },
+          transfer: transferInfo,
         })
+      } else {
+        path.push({ station: currentStation, segment: null, transfer: null })
       }
-
-      currentLine = line
-      segments.push({ line, from: currentStation, to: nextStation })
     }
 
-    return { path, distance, segments, transfers }
+    return { path, distance, transfers }
   }
 
   private findCommonLines(station1: Station, station2: Station): Array<string> {
