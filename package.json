@@ -1,12 +1,12 @@
 {
   "name": "ts-metro",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p format lint type-check \"build-only {@}\" --",
+    "build": "run-p test:unit format lint type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "test:unit": "vitest",
+    "test:unit": "vitest run --reporter verbose",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",

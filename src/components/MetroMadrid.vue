@@ -62,7 +62,7 @@ export default defineComponent({
       stations: new Array<Station>(),
       selectedOrigin: '',
       selectedDestiny: '',
-      shortestPath: new Array<string>(),
+      shortestPath: new Array<any>(),
       linesConfig: new Map<any, any>(),
       distance: 0,
       clicked: false,
@@ -104,15 +104,17 @@ export default defineComponent({
         this.clicked = true
         this.isLoading = true
         const stationOrigin: Station = this.metro.getStationById(this.selectedOrigin)
-        const stationDestiny: Station = this.metro.getStationById(this.selectedDestiny)
-        const [path, distance] = this.metro.getShortestPath(stationOrigin, stationDestiny)
+        const stationDestination: Station = this.metro.getStationById(this.selectedDestiny)
+        const { path, distance } = this.metro.getShortestPath(stationOrigin, stationDestination)
         this.distance = distance
-        this.shortestPath = path
+        this.shortestPath = path.map((step: any) => ({
+          station: step.station,
+          segment: step.segment,
+          transfer: step.transfer,
+        }))
         this.isLoading = false
       }
     },
   },
 })
 </script>
-
-<style scoped></style>

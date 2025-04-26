@@ -13,11 +13,15 @@ https://ts-metro.netlify.app
 
 ### Desktop view
 
-[![tsMetro screenshot for desktop](./docs/imgs/tsmetro-desktop.png)](https://ts-metro.netlify.app)
+<p align="center">
+  <img alt="tsMetro screenshot for desktop" src="./docs/imgs/tsmetro-desktop.png">
+</p>
 
 ### Mobile view
 
-[![tsMetro screenshot for mobile](./docs/imgs/tsmetro-mobile.png)](https://ts-metro.netlify.app)
+<p align="center">
+  <img alt="tsMetro screenshot for mobile" src="./docs/imgs/tsmetro-mobile.png" width="50%">
+</p>
 
 ## Project setup
 ```

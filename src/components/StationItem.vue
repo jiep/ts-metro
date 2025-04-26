@@ -1,24 +1,76 @@
 <template lang="pug">
 .flex.flex-col.items-center.w-full
-  .flex.bg-red-50.px-2.py-2.border-l-4.border-r-4.border.border-red-600.shadow-xl.rounded-xl.justify-between.w-full(class="md:w-3/4")
+  .flex.px-2.py-2.border-l-4.border-r-4.border.shadow-xl.justify-between.w-full(class="md:w-3/4", :style="borderStyle")
     .flex-row.flex.mr-4
       span.text-left.antialiased.text-gray-800 {{station.name}}
     .flex.items-center.flex.flex-nowrap.overflow-auto
-      template(v-for="line in station.getLines()")
-        span.font-medium.text-xs.text-center.rounded.mr-1.py-1.px-2(class="last:mr-0" :style="[{'background-color': lines.get(line).bgColor}, {'color': lines.get(line).textColor}, {'border': `1px solid ${lines.get(line).borderColor}`}]") {{line}}
-  SeparatorIcon.rotate-90.w-4.fill-current.text-blue-400.m-2(class="last:display-none", v-if="!isLast")
+      LineBadge(v-if="!transfer"
+        :bgColor="lines.get(currentLine).bgColor"
+        :textColor="lines.get(currentLine).textColor"
+        :borderColor="lines.get(currentLine).borderColor"
+        :content="currentLine")
+      .flex.items-center(v-if="transfer")
+        span.mr-2.text-xs.text-center.rounded.py-1 De
+        LineBadge.mr-2(
+          :bgColor="lines.get(transfer.fromLine).bgColor"
+          :textColor="lines.get(transfer.fromLine).textColor"
+          :borderColor="lines.get(transfer.fromLine).borderColor"
+          :content="transfer.fromLine")
+        span.mr-2.text-xs.text-center.rounded.py-1 a
+        LineBadge(
+          :bgColor="lines.get(transfer.toLine).bgColor"
+          :textColor="lines.get(transfer.toLine).textColor"
+          :borderColor="lines.get(transfer.toLine).borderColor"
+          :content="transfer.toLine")
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
-import SeparatorIcon from '@/components/SeparatorIcon.vue'
+import LineBadge from '@/components/LineBadge.vue'
 
 export default defineComponent({
   name: 'StationItem',
-  props: ['station', 'lines', 'isLast'],
   components: {
-    SeparatorIcon,
+    LineBadge,
+  },
+  props: ['station', 'lines', 'isLast', 'transfer', 'currentLine'],
+  computed: {
+    borderStyle() {
+      if (this.transfer) {
+        let fromColor, toColor
+
+        const fromLine = this.lines.get(this.transfer.fromLine)
+
+        const toLine = this.lines.get(this.transfer.toLine)
+        if (this.transfer.fromLine.startsWith('ML') || this.transfer.fromLine.startsWith('R')) {
+          fromColor = fromLine.borderColor
+        } else {
+          fromColor = fromLine.bgColor
+        }
+
+        if (this.transfer.toLine.startsWith('ML') || this.transfer.toLine.startsWith('R')) {
+          toColor = toLine.borderColor
+        } else {
+          toColor = toLine.bgColor
+        }
+
+        return {
+          borderImage: `linear-gradient(to bottom, ${fromColor}, ${toColor}) 1`,
+        }
+      }
+
+      let currentColor
+
+      if (this.currentLine.startsWith('ML') || this.currentLine.startsWith('R')) {
+        currentColor = this.lines.get(this.currentLine).borderColor
+      } else {
+        currentColor = this.lines.get(this.currentLine).bgColor
+      }
+
+      return {
+        borderColor: currentColor,
+      }
+    },
   },
 })
 </script>

@@ -37,7 +37,7 @@ describe('Metro Madrid', () => {
 
   describe('Shortest path', () => {
     /* eslint-disable @typescript-eslint/no-explicit-any */
-    let stationsAndDistance: Array<any>
+    let stationsAndDistance: any
     beforeAll(() => {
       const station1: Station = metro.getStationById(1)
       const station2: Station = metro.getStationById(2)
@@ -46,8 +46,8 @@ describe('Metro Madrid', () => {
 
     it('should return the shortest path between two given stations', () => {
       const expected = [1, 214, 136, 179, 50, 110, 254, 10, 111, 175, 72, 194, 159, 52, 2]
-      const [path, distance] = stationsAndDistance
-      const stations = path.map((x: Station) => x.getId())
+      const {path, distance} = stationsAndDistance
+      const stations = path.map((x: Station) => x.station.getId())
       expect(stations).to.deep.equal(expected)
       expect(distance).to.equal(18041)
     })
