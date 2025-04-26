@@ -4,15 +4,14 @@
     .flex-row.flex.mr-4
       span.text-left.antialiased.text-gray-800 {{station.name}}
     .flex.items-center.flex.flex-nowrap.overflow-auto
-      span.font-medium.text-xs.text-center.rounded.py-1.px-2(:style="[{'background-color': lines.get(currentLine).bgColor}, {'color': lines.get(currentLine).textColor}, {'border': `1px solid ${lines.get(currentLine).borderColor}`}]") {{currentLine}}
+      span.font-medium.text-xs.text-center.rounded.py-1.px-2(v-if="!transfer" :style="[{'background-color': lines.get(currentLine).bgColor}, {'color': lines.get(currentLine).textColor}, {'border': `1px solid ${lines.get(currentLine).borderColor}`}]") {{currentLine}}
+      .flex.items-center(v-if="transfer") 
+        | De
+        span.ml-2.mr-2.font-medium.text-xs.text-center.rounded.py-1.px-2(:style="[{'background-color': lines.get(transfer.fromLine).bgColor}, {'color': lines.get(transfer.fromLine).textColor}, {'border': `1px solid ${lines.get(transfer.fromLine).borderColor}`}]") {{transfer.fromLine}}
+        |  a 
+        span.ml-2.font-medium.text-xs.text-center.rounded.py-1.px-2(:style="[{'background-color': lines.get(transfer.toLine).bgColor}, {'color': lines.get(transfer.toLine).textColor}, {'border': `1px solid ${lines.get(transfer.toLine).borderColor}`}]") {{transfer.toLine}}
   .flex.flex-row.items-center.justify-center
     SeparatorIcon.rotate-90.w-4.fill-current.text-blue-400.m-2(class="last:display-none", v-if="!isLast") 
-    p(v-if="transfer") 
-      span.mr-2 Transbordo de
-      span.mr-2.font-medium.text-xs.text-center.rounded.py-1.px-2(:style="[{'background-color': lines.get(transfer.fromLine).bgColor}, {'color': lines.get(transfer.fromLine).textColor}, {'border': `1px solid ${lines.get(transfer.fromLine).borderColor}`}]") {{transfer.fromLine}}
-      span.mr-2 a
-      span.font-medium.text-xs.text-center.rounded.py-1.px-2(:style="[{'background-color': lines.get(transfer.toLine).bgColor}, {'color': lines.get(transfer.toLine).textColor}, {'border': `1px solid ${lines.get(transfer.toLine).borderColor}`}]") {{transfer.toLine}}
-
 </template>
 
 <script lang="ts">
