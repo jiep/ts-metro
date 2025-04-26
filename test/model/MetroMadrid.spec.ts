@@ -47,7 +47,7 @@ describe('Metro Madrid', () => {
     it('should return the shortest path between two given stations', () => {
       const expected = [1, 214, 136, 179, 50, 110, 254, 10, 111, 175, 72, 194, 159, 52, 2]
       const {path, distance} = stationsAndDistance
-      const stations = path.map((x: Station) => x.getId())
+      const stations = path.map((x: Station) => x.station.getId())
       expect(stations).to.deep.equal(expected)
       expect(distance).to.equal(18041)
     })
