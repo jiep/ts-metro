@@ -33,7 +33,7 @@
     "eslint": "9.26.0",
     "eslint-plugin-vue": "9.33.0",
     "jsdom": "26.1.0",
-    "npm-run-all2": "7.0.2",
+    "npm-run-all2": "8.0.1",
     "postcss": "8.5.3",
     "prettier": "3.5.3",
     "pug": "3.0.3",
