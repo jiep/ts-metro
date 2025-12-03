@@ -29,7 +29,7 @@
     "@vue/language-plugin-pug": "2.2.8",
     "@vue/test-utils": "2.4.6",
     "@vue/tsconfig": "0.7.0",
-    "cssnano": "7.1.1",
+    "cssnano": "7.1.2",
     "eslint": "9.38.0",
     "eslint-plugin-vue": "9.33.0",
     "jsdom": "26.1.0",
