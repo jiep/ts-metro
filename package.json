@@ -41,7 +41,7 @@
     "typescript": "5.9.3",
     "vite": "6.4.1",
     "vite-plugin-pwa": "0.21.2",
-    "vite-plugin-vue-devtools": "7.7.7",
+    "vite-plugin-vue-devtools": "7.7.9",
     "vitest": "3.2.4",
     "vue-tsc": "2.2.12"
   }
