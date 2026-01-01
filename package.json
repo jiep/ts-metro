@@ -31,7 +31,7 @@
     "@vue/tsconfig": "0.7.0",
     "cssnano": "7.1.2",
     "eslint": "9.39.2",
-    "eslint-plugin-vue": "9.33.0",
+    "eslint-plugin-vue": "10.6.2",
     "jsdom": "26.1.0",
     "npm-run-all2": "7.0.2",
     "postcss": "8.5.6",
