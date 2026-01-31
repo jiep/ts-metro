@@ -19,7 +19,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/postcss": "4.1.18",
-    "@tsconfig/node24": "24.0.4",
+    "@tsconfig/node24": "24.0.2",
     "@types/jsdom": "27.0.0",
     "@types/node": "24.10.9",
     "@vitejs/plugin-vue": "6.0.3",
@@ -28,7 +28,7 @@
     "@vue/eslint-config-typescript": "14.6.0",
     "@vue/language-plugin-pug": "2.2.12",
     "@vue/test-utils": "2.4.6",
-    "@vue/tsconfig": "0.7.0",
+    "@vue/tsconfig": "0.8.1",
     "cssnano": "7.1.2",
     "eslint": "9.39.2",
     "eslint-plugin-vue": "9.33.0",
