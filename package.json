@@ -19,7 +19,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/postcss": "4.1.18",
-    "@tsconfig/node24": "24.0.0",
+    "@tsconfig/node24": "24.0.4",
     "@types/jsdom": "27.0.0",
     "@types/node": "24.10.9",
     "@vitejs/plugin-vue": "6.0.3",
