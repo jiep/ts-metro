@@ -60,13 +60,14 @@ export default class MetroMadrid extends Metro {
           )
         }
 
-        const line = commonLines[0]
+        const line = commonLines[0]!
 
         if (currentLine && currentLine !== line) {
           transferInfo = { fromLine: currentLine, toLine: line }
         }
 
         currentLine = line
+
         path.push({
           station: currentStation,
           segment: { line, from: currentStation, to: nextStation },

@@ -2,7 +2,7 @@ import Graph from './Graph'
 import GraphClass from './GraphClass'
 
 export default class WeightedGraph extends Graph {
-  private weightedMatrix: number[][] = [[]]
+  private weightedMatrix: number[][] = []
 
   constructor(c: GraphClass, verticesNumber: number) {
     super(c, verticesNumber)
@@ -11,9 +11,9 @@ export default class WeightedGraph extends Graph {
       this.weightedMatrix[i] = []
       for (let j = 0; j < verticesNumber; j++) {
         if (i === j) {
-          this.weightedMatrix[i][j] = 0
+          this.weightedMatrix[i]![j]! = 0
         } else {
-          this.weightedMatrix[i][j] = Number.POSITIVE_INFINITY
+          this.weightedMatrix[i]![j]! = Number.POSITIVE_INFINITY
         }
       }
     }
@@ -22,21 +22,22 @@ export default class WeightedGraph extends Graph {
   public connect(i: number, j: number, weight?: number): void {
     super.connect(i, j)
 
-    this.weightedMatrix[i][j] = weight!
+    this.weightedMatrix[i]![j] = weight!
     if (super.getClass === GraphClass.UNDIRECTED) {
-      this.weightedMatrix[j][i] = weight!
+      this.weightedMatrix[j]![i] = weight!
     }
   }
 
   public getWeight(i: number, j: number): number {
-    return this.areConnected(i, j) ? this.weightedMatrix[i][j] : Number.POSITIVE_INFINITY
+    super.ensure(i, j)
+    return this.weightedMatrix[i]![j] ?? Number.POSITIVE_INFINITY
   }
 
   get getWeightedMatrix(): number[][] {
     return this.weightedMatrix
   }
 
-  private floyd(): Array<number[][]> {
+  private floyd(): [number[][], number[][]] {
     const n: number = this.vertices()
     const ans: number[][] = this.getWeightedMatrix.map((a) => [...a])
     const p: number[][] = WeightedGraph.calculePath(this.getWeightedMatrix)
@@ -44,16 +45,14 @@ export default class WeightedGraph extends Graph {
     for (let k = 0; k < n; k++) {
       for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-          if (ans[i][k] + ans[k][j] < ans[i][j]) {
-            ans[i][j] = ans[i][k] + ans[k][j]
-            p[i][j] = p[k][j]
+          if (ans[i]![k]! + ans[k]![j]! < ans[i]![j]!) {
+            ans[i]![j]! = ans[i]![k]! + ans[k]![j]!
+            p[i]![j]! = p[k]![j]!
           }
         }
       }
     }
-    const out = []
-    out.push(ans)
-    out.push(p)
+    const out: [number[][], number[][]] = [ans, p]
     return out
   }
 
@@ -62,9 +61,9 @@ export default class WeightedGraph extends Graph {
 
     r.unshift(j)
 
-    while (path[i][j] !== i) {
-      r.unshift(path[i][j])
-      j = path[i][j]
+    while (path[i]![j]! !== i) {
+      r.unshift(path[i]![j]!)
+      j = path[i]![j]!
     }
 
     r.unshift(i)
@@ -78,16 +77,16 @@ export default class WeightedGraph extends Graph {
     for (let i = 0; i < ady.length; i++) {
       path[i] = []
       for (let j = 0; j < ady.length; j++) {
-        if (ady[i][j] === Number.POSITIVE_INFINITY) {
-          path[i][j] = -1
+        if (ady[i]![j] === Number.POSITIVE_INFINITY) {
+          path[i]![j] = -1
         } else {
-          path[i][j] = i
+          path[i]![j] = i
         }
       }
     }
 
     for (let i = 0; i < ady.length; i++) {
-      path[i][i] = i
+      path[i]![i] = i
     }
 
     return path
@@ -98,7 +97,7 @@ export default class WeightedGraph extends Graph {
     const floyd = this.floyd()
     const [distance, path] = floyd
     const sPath = WeightedGraph.rPath(i, j, path)
-    const d = distance[i][j]
+    const d = distance[i]![j]
 
     return [sPath, d]
   }
