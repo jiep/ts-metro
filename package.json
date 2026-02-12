@@ -35,7 +35,7 @@
     "jsdom": "27.4.0",
     "npm-run-all2": "8.0.4",
     "postcss": "8.5.6",
-    "prettier": "3.7.4",
+    "prettier": "3.8.1",
     "pug": "3.0.3",
     "tailwindcss": "4.1.18",
     "typescript": "5.8.3",
