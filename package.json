@@ -43,6 +43,6 @@
     "vite-plugin-pwa": "1.2.0",
     "vite-plugin-vue-devtools": "8.0.5",
     "vitest": "3.2.4",
-    "vue-tsc": "2.2.12"
+    "vue-tsc": "3.2.5"
   }
 }
