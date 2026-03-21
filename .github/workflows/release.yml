@@ -55,12 +55,14 @@ jobs:
           path: .
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe # v2.6.1
-        with:
-          files: ${{ env.PROJECT_NAME }}-${{ env.VERSION }}.tar.gz
-          generate_release_notes: true
+        run: |
+          gh release create ${{ env.VERSION }} \
+            --repo ${{ github.repository }} \
+            --title "${{ env.VERSION }}" \
+            --generate-notes \
+            ${{ env.PROJECT_NAME }}-${{ env.VERSION }}.tar.gz
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   attest:
     needs: release
