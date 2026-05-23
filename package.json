@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "0.5.11",
-    "@tailwindcss/postcss": "4.2.2",
+    "@tailwindcss/postcss": "4.3.0",
     "@tsconfig/node24": "24.0.2",
     "@types/jsdom": "28.0.1",
     "@types/node": "24.12.4",
@@ -37,7 +37,7 @@
     "postcss": "8.5.10",
     "prettier": "3.8.1",
     "pug": "3.0.4",
-    "tailwindcss": "4.2.2",
+    "tailwindcss": "4.3.0",
     "typescript": "5.8.3",
     "vite": "7.3.3",
     "vite-plugin-pwa": "1.2.0",
