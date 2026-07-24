@@ -22,7 +22,7 @@
     "@tsconfig/node24": "24.0.2",
     "@types/jsdom": "28.0.3",
     "@types/node": "24.12.4",
-    "@vitejs/plugin-vue": "6.0.7",
+    "@vitejs/plugin-vue": "6.0.8",
     "@vitest/eslint-plugin": "1.6.23",
     "@vue/eslint-config-prettier": "10.2.0",
     "@vue/eslint-config-typescript": "14.9.0",
