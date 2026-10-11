@@ -1,15 +1,26 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
+import type { RolldownOptions } from 'rolldown'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { VitePWA } from 'vite-plugin-pwa'
-import { version } from './package.json'
+import packageJson from './package.json' with { type: 'json' }
+
+const { version } = packageJson
+const rolldownChecks: NonNullable<RolldownOptions['checks']> & { pluginTimings: boolean } = {
+  pluginTimings: false,
+}
 
 
 
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    rolldownOptions: {
+      checks: rolldownChecks,
+    },
+  },
   plugins: [
     vue(),
     vueDevTools(),
